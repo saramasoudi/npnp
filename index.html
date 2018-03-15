@@ -4,16 +4,23 @@
 <head>
 	<script>
 		function login() {
-			alert("Let's login!");
+			var user_name = document.getElementById("user_name");
+			var password = document.getElementById("password");
+			alert("Logging in..."); 
+			window.location.href = 'home.html';
 		}
 	</script>
-
-	<h1>This is our landing login page</h1>
 </head>
 
 <body>
-	<p>Want to login? cool.</p>
-	<button id="login_button" onclick="login()">Login</button>
+	<div style="border:4px dashed black;padding:10px;text-align:center;position:relative;">
+		<h1>Welcome to the UMBC Facilities Work Order Management System</h1>
+		<span style="padding:5px;position:relative;">
+			User Name: <input type="text" id="user_name"></input></br></br>
+			Password: <input type="text" id="password"></input></br></br>
+			<button id="login_button" onclick="login()">Login</button>
+		</span>
+	</div>
 </body>
 
 </html>
