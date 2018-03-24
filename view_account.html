@@ -2,39 +2,33 @@
 <html>
 
 <head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+
 	<script>
 		function home() {
 			window.location.href = 'home.html';
+		}
+		function changePass() {
+			alert('LOL no');
 		}
 	</script>
 
 </head>
 
-<body style="background-color:#cce6ff;">
+<body>
 
-	<span style="height:20px;width:100%;">
-		<a href="home.html" style="float:right;">
-			<p style="padding:3px;background-color:black;color:white;">Go Back Home</p>
-		</a>
-	</span>
+	<button class="redirectButton" style="float:right;" onclick="home()">Go Back Home</button>
 
 	</br>
 
 	<h1>This is your view account page.</h1>
-	<div style="border:1px solid red;height:600px;text-align:center;">
-		<span style="">
-			<p>IMAGE?</p>
-		</span>
-		<span style="">
-			<p>NAME</p>
-		</span>
-		<span>
-			<p>EMAIL?</p>
-		</span>
-		<span>
-			<p>ACCOUNT STATUS?</p>
-		</span>
+	<div id="accountDetails">
+		<img src="default_account_pic.jpg" style="height:200px;width:200px;">
+		<h2>True Girt</h2>
+		<p style="font-size:20px;"><i>Email:</i> houseofgrit@umbc.edu</p>
+		<p style="font-size:20px;"><i>Account Status:</i> Maintenance Assistant</p>
 
+		<button class="redirectButton" onclick="changePass()">Change Password</button>
 	</div>
 
 </body>

@@ -1,0 +1,79 @@
+body{
+	margin:10px 30px 10px 30px;
+	background-color:#cce6ff;
+}
+
+.redirectButton {
+	background-color:#ffb366;
+	padding:5px;
+	color:white;
+	text-decoration:none;
+	border:none;
+	font-size:16px;
+	
+}
+
+.dropField {
+	background-color:white;
+	border: 2px solid black;
+	text-align:center;
+	width:30%;
+	height:100%;
+	display:inline-block;
+}
+
+#uploadButton {
+	padding:3px;
+	background-color:#00cc66;
+	color:white;
+	text-decoration:none;
+	border:none;
+	font-size:50px;
+	border-radius:50%;
+	/*box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);*/
+	display:inline-block;
+	height:60px;
+	width:60px; 
+}
+
+#uploadButton:hover, .redirectButton:hover {
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	cursor:pointer;
+}
+
+#overlay {
+	position:fixed;
+	display:none;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background-color:rgba(0,0,0,0.5);
+	z-index:2;
+	/*cursor:pointer;*/
+}
+
+#uploadForm {
+	background-color:white;
+	position:absolute;
+	top:25%;
+	left:30%;
+	right:30%;
+	height:40%;
+	padding:10px;
+}
+
+#accountDetails {
+	position:absolute;
+	background-color:white;
+	text-align:center;
+	font-size:16px;
+	border:1px solid black;
+	left:15%;
+	right:15%;
+	top:20%;
+	bottom:30%;
+	padding:20px;
+}
