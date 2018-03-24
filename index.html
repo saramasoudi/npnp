@@ -6,21 +6,26 @@
 		function login() {
 			var user_name = document.getElementById("user_name");
 			var password = document.getElementById("password");
-			alert("Logging in..."); 
+			//alert("Logging in..."); 
 			window.location.href = 'home.html';
+		}
+		function noAccount() {
+			alert("That sucks");
 		}
 	</script>
 </head>
 
-<body>
-	<div style="border:4px dashed black;padding:10px;text-align:center;position:relative;">
-		<h1>Welcome to the UMBC Facilities Work Order Management System</h1>
-		<span style="padding:5px;position:relative;">
+<body style="background-color:#cce6ff;text-align:center;">
+	<div style="background-color:white;border:1px solid black;padding:10px;text-align:center;">
+		<h1>Welcome to the UMBC Facilities MAPS</h1>
+		<span style="padding:5px;">
 			User Name: <input type="text" id="user_name"></input></br></br>
 			Password: <input type="text" id="password"></input></br></br>
 			<button id="login_button" onclick="login()">Login</button>
 		</span>
 	</div>
+
+	<p style="" onclick="noAccount()">Don't already have an account?</p>
 </body>
 
 </html>
