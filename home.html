@@ -5,52 +5,120 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 
 	<script>
-		function newUpload() {
-			//alert("New Upload Complete!");
-			document.getElementById("overlay").style.display = "block";
-		}
 		function viewAccount() {
 			window.location.href='view_account.html';
 		}
 		function logout() {
 			window.location.href='index.html';
 		}
-		function overlayOff() {
-			document.getElementById("overlay").style.display = "none";
+		function toggleOverlay() {
+			if ( document.getElementById("overlay").style.display == "block" ) {
+				document.getElementById("overlay").style.display = "none";
+			} else {
+				
+				document.getElementById("overlay").style.display = "block";
+			}
+
 		}
+		function toggleUpload() {
+			toggleOverlay();
+			if ( document.getElementById("uploadForm").style.display == "block" ) {
+				document.getElementById("uploadForm").style.display = "none";
+			} else {
+				
+				document.getElementById("uploadForm").style.display = "block";
+			}
+		}
+		function toggleSearch() {
+			toggleOverlay();
+			if ( document.getElementById("searchForm").style.display == "block" ) {
+				document.getElementById("searchForm").style.display = "none";
+			} else {
+				
+				document.getElementById("searchForm").style.display = "block";
+			}
+		}
+
 	</script>
 
 </head>
 
 <body>
+	<div style="text-align:right;">
+		<button class="redirectButton" onclick="viewAccount()">View My Account</button>
+		<button class="redirectButton" onclick="toggleSearch()">Search</button>
+		<button class="redirectButton" onclick="logout()">Logout</button>
+	</div>
 
-	<button class="redirectButton" style="float:right;" onclick="viewAccount()">View My Account</button>
-	<button class="redirectButton" style="float:left;" onclick="logout()">Logout</button>
+	<div id="columnBody">
+		<span class="column">
+			<h2>Open WOs</h2>
+			<span class="dropField">
+				<p>All open work orders.</p>
 
-	</br>
-
-	<h1>This is our home page that you see after logging in.</h1>
-	<div style="height:600px;text-align:center;">
-		<span class="dropField">
-			<p>All open work orders.</p>
+			</span>
 		</span>
-		<span class="dropField" style="margin:0 40px 0 40px;">
-			<p>Work orders assigned to me.</p>
+		<span class="column" style="margin:0 5% 0 5%;">
+			<h2>Submitted by Me</h2>
+			<span class="dropField">
+				<p>Work orders assigned to me.</p>
+			</span>
 		</span>
-		<span class="dropField">
-			<p>Work orders submitted by me.</p>
+		<span class="column">
+			<h2>Assigned to Me</h2>
+			<span class="dropField">
+				<p>Work orders submitted by me.</p>
+			</span>
 		</span>
 	</div>
 
 	</br>
 
-	<button id="uploadButton" onclick="newUpload()">+</button>
+	<button id="uploadButton" onclick="toggleUpload()">+</button>
 
 	<div id="overlay">
-		<div id="uploadForm">
-			<h2>This is the upload form.</h2></br>
-			Choose WO PDF(s) to add to queue...<input type="file"></input></br>
-			<button class="redirectButton" style="float:right;" onclick="overlayOff()">Upload</button>
+		<div id="uploadForm" class="overlayForm" style="min-height:250px;"> 
+			<h2 style="border-bottom:1px solid black;">Upload New WO</h2>
+			<table style="width:100%;border-collapse:collapse;">
+				<tr>
+					<th><p>Select WO PDF(s) to add to queue:</p></th>
+					<th><input type="file"></input></th>
+				</tr>
+				<tr>
+					<th><p>Enter unique WO identification number:</p></th>
+					<th style="text-align:left;"><input type="text"></input></th>
+				</tr>
+				<tr>
+					<th><th>
+					<th><button class="redirectButton" style="float:right;" onclick="toggleUpload()">Upload</button></th>
+				</tr>
+			</table>
+		</div>
+		<div id="searchForm" class="overlayForm" style="min-height:300px;">
+			<h2 style="border-bottom:1px solid black;">Search</h2>
+			<table style="width:100%;border-collapse:collapse;">
+				<tr>
+					<th style="vertical-align:top;"><p style="margin-top:0;">Category:</p></th>
+					<th style="text-align:left;">
+						<input type="checkbox">Unassigned</input></br>
+						<input type="checkbox">Assigned</input></br>
+						<input type="checkbox">Submitted</input></br>
+						<input type="checkbox">Approved</input></br>
+					</th>
+				</tr>
+				<tr style="border:1px solid red;">
+					<th><p>MA:</p></th>
+					<th style="text-align:left;"><input type="text"></input></th>
+				</tr>
+				<tr>
+					<th><p>WO Identification Number:</p></th>
+					<th style="text-align:left;"><input type="text"></input></th>
+				</tr>
+				<tr>
+					<th></th>
+					<th><button class="redirectButton" style="float:right;" onclick="toggleSearch()">Search</button></th>
+				</tr>
+			</table>
 		</div>
 	</div>
 
