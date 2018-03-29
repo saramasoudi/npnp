@@ -1,7 +1,15 @@
 body{
-	margin:10px 30px 10px 30px;
+	margin:2% 2% 2% 2%;
 	background-color:#cce6ff;
 	font-family:"Arial";
+	overflow:hidden;
+}
+
+#loginBox {
+	background-color:white;
+	border:1px solid black;
+	padding:10px;
+	text-align:center;
 }
 
 .redirectButton {
@@ -15,7 +23,7 @@ body{
 }
 
 #columnBody {
-	margin-top:2%;
+	margin-top:4%;
 	height:700px;
 	text-align:center;
 	position:relative;

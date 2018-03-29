@@ -3,6 +3,8 @@
 
 <head>
 	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" type="text/css" href="menu.css">
+
 
 	<script>
 		function viewAccount() {
@@ -44,11 +46,28 @@
 </head>
 
 <body>
-	<div style="text-align:right;">
-		<button class="redirectButton" onclick="viewAccount()">View My Account</button>
-		<button class="redirectButton" onclick="toggleSearch()">Search</button>
-		<button class="redirectButton" onclick="logout()">Logout</button>
-	</div>
+
+	<!-- navigation menu -->
+
+	<nav role='navigation'>
+		<div id="toggleMenu">
+			<input type="checkbox" />
+
+			<span></span>
+			<span></span>
+			<span></span>
+
+			<ul id="menu">
+
+				<li><button class="redirectButton" onclick="viewAccount()">View My Account</button></li>
+				<li><button class="redirectButton" onclick="toggleSearch()">Search</button></li>
+				<li><button class="redirectButton" onclick="logout()">Logout</button></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!------------------------>
+
 
 	<div id="columnBody">
 		<span class="column">

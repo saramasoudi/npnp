@@ -3,6 +3,7 @@
 
 <head>
 	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" type="text/css" href="menu.css">
 
 	<script>
 		function home() {
@@ -16,10 +17,25 @@
 </head>
 
 <body>
+	<!-- navigation menu -->
 
-	<button class="redirectButton" style="float:right;" onclick="home()">Go Back Home</button>
+	<nav role='navigation'>
+		<div id="toggleMenu">
+			<input type="checkbox" />
 
-	</br>
+			<span></span>
+			<span></span>
+			<span></span>
+
+			<ul id="menu">
+				<li><button class="redirectButton" onclick="home()">Go Home</button></li>
+				<li><button class="redirectButton" onclick="logout()">Logout</button></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!------------------------>
+
 
 	<div id="accountDetails">
 		<img src="default_account_pic.jpg" style="height:200px;width:200px;">
