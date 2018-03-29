@@ -15,6 +15,26 @@
 		function changePass() {
 			alert('LOL no');
 		}
+
+		function toggleOverlay() {
+			if ( document.getElementById("overlay").style.display == "block" ) {
+				document.getElementById("overlay").style.display = "none";
+			} else {
+				
+				document.getElementById("overlay").style.display = "block";
+			}
+
+		}
+		function togglePassword() {
+			toggleOverlay();
+			if ( document.getElementById("changePassword").style.display == "block" ) {
+				document.getElementById("changePassword").style.display = "none";
+			} else {
+				
+				document.getElementById("changePassword").style.display = "block";
+			}
+		}
+
 	</script>
 
 </head>
@@ -47,9 +67,40 @@
 		<p style="font-size:20px;"><i>Email:</i> houseofgrit@umbc.edu</p>
 		<p style="font-size:20px;"><i>Account Status:</i> Maintenance Assistant</p>
 
-		<button class="redirectButton" onclick="changePass()">Change Password</button>
+		<button class="redirectButton" onclick="togglePassword()">Change Password</button>
 	</div>
 
+	<!-- overlay form -->
+
+	<div id="overlay">
+		<div id="changePassword" class="overlayForm"> 
+			<div id="overlayHeader">
+				<b>Change Password</b>
+				<button id= "closeOverlay" class="redirectButton" onclick="togglePassword()">X</button>
+			</div>
+			<table>
+				<tr>
+					<th><p>Old Password:</p></th>
+					<th><input type="text"></input></th>
+				</tr>
+				<tr>
+					<th><p>New Password:</p></th>
+					<th><input type="text"></input></th>
+				</tr>
+				<tr>
+					<th><p>Confirm New Password:</p></th>
+					<th><input type="text"></input></th>
+				</tr>
+				<tr>
+					<th><th>
+					<th><button class="redirectButton" id="formButton" onclick="togglePassword()">Save</button></th>
+				</tr>
+			</table>
+		</div>
+
+	</div>
+
+	<!-------------------->
 </body>
 
 </html>
