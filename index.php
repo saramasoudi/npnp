@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html>
 
+<?php
+	echo "test?";
+
+	$user = 'snturskey';
+	$password = 'npnp';
+	$server_name = 'studentdb-maria.gl';
+	 	
+	$conn = mysqli_connect($server_name, $user, $password);
+	
+	if (!$conn) {
+		die("Connection failed: " . mysqli_connect_error());
+	}
+	echo "Connected successfully";
+?>
+
+
 <head>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 
