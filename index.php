@@ -29,13 +29,15 @@
 
 	// query will only return first name
 	while ($row = mysql_fetch_assoc($result)) {
-		print_r($row);
+		/*print_r($row);
 
 		if ($name == $row['first_name']) {
 			header("Location:home.html");
 		} else {
 			echo "no";
-		}	
+		}*/
+
+		header("Location:home.html");
 	}
 
 
