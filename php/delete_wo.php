@@ -1,8 +1,8 @@
-// PHP script for the  delete_wo() function
-// This function will remove an entry in the work order table.
-
 <?php
-	
+
+	// PHP script for the  delete_wo() function
+	// This function will remove an entry in the work order table.
+
 	// Code to retrieve variables sent from the html
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		 $name = $_POST["user_name"];
