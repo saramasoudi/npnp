@@ -1,10 +1,10 @@
-// PHP script for the  assign_wo() function
-// This function will take the user id of a maintenance assistant and the work order number.
-// The work order’s status will be changed to ‘assigned’ and the maintenance assistants id will be
-// added to the work order. If the function is passed ‘Null’, it will change the work order status
-// to unassigned. 
-
 <?php
+
+	// PHP script for the  assign_wo() function
+     	// This function will take the user id of a maintenance assistant and the work order number.
+	// The work order’s status will be changed to ‘assigned’ and the maintenance assistants id will be
+	// added to the work order. If the function is passed ‘Null’, it will change the work order status
+	// to unassigned. 
 	
 	// Code to retrieve variables sent from the html
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {

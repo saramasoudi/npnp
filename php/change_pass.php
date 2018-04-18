@@ -1,9 +1,9 @@
-// PHP script for the  change_pass() function
-// This function will take a new password and edit the users entry in the database to update
-// the password that user uses to login. 
-
 <?php
-	
+
+	// PHP script for the  change_pass() function
+	// This function will take a new password and edit the users entry in the database to update
+	// the password that user uses to login. 
+
 	// Code to retrieve variables sent from the html
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		 $name = $_POST["user_name"];
