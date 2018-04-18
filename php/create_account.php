@@ -1,9 +1,9 @@
-// PHP script for the  create_account() function
-// This function will take a new user id, a password, and a account type and insert a new user
-// into the database. 
-
 <?php
-	
+
+	// PHP script for the  create_account() function
+	// This function will take a new user id, a password, and a account type and insert a new user
+	// into the database. 
+
 	// Code to retrieve variables sent from the html
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		 $name = $_POST["user_name"];
