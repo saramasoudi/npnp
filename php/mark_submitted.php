@@ -1,8 +1,8 @@
-// PHP script for the  mark_submitted() function
-// This function will take a work order number and change its status to submitted.
-
 <?php
-	
+
+	// PHP script for the  mark_submitted() function
+	// This function will take a work order number and change its status to submitted.	
+
 	// Code to retrieve variables sent from the html
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		 $name = $_POST["user_name"];

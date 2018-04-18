@@ -1,10 +1,10 @@
-// PHP script for the  search() function
-//  This function will take a variety of parameters and constraints and return the work orders that
-// satisfy those constraints. Constraints include, work order status, upload date, completed date,
-// and assigned maintenance assistant. 
-
 <?php
-	
+
+	// PHP script for the  search() function
+	// This function will take a variety of parameters and constraints and return the work orders that
+	// satisfy those constraints. Constraints include, work order status, upload date, completed date,
+	// and assigned maintenance assistant. 
+
 	// Code to retrieve variables sent from the html
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		 $name = $_POST["user_name"];

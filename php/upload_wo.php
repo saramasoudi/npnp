@@ -1,8 +1,8 @@
-// PHP script for the  upload_wo() function
-// This function will take a new work order and insert it into the database.
-
 <?php
 	
+	// PHP script for the  upload_wo() function
+	// This function will take a new work order and insert it into the database.
+
 	// Code to retrieve variables sent from the html
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		 $name = $_POST["user_name"];

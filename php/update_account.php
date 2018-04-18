@@ -1,8 +1,8 @@
-// PHP script for the  update_account() function
-// This function will takes a worker id and an account type and changes that employees account type.
-
 <?php
 	
+	// PHP script for the  update_account() function
+	// This function will takes a worker id and an account type and changes that employees account type.
+
 	// Code to retrieve variables sent from the html
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		 $name = $_POST["user_name"];
