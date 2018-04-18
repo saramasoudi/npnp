@@ -24,17 +24,10 @@
 		print_r($row);
 		print_r($row['first_name'])
 	}*/
-
-	#include '../css/styles.css';
 	
 	$numOfWOs = 4;
 
-	echo "<div class='workOrder'></div>
-		<div class='workOrder'></div>
-		<div class='workOrder'></div>
-		<div class='workOrder'></div>
-		<div class='workOrder'></div>
-		<div class='workOrder'></div>";
-
-
+	for($i=0; $i < $numOfWOs; $i++) {
+		echo "<div class='workOrder'></div>";
+	}
 ?>
