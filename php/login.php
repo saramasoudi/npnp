@@ -6,17 +6,11 @@
 	// direct the user to the right landing page. If the user does not exist in the table, it will
 	// return an error.
 
-	//echo "test?";
-	//print_r($_POST);
-
 	// Code to retrieve variables sent from the html
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		 $name = $_POST["user_name"];
  		 $pass = $_POST["password"];
    	}	
-
-	echo $name;
-	echo $pass;
 
 	// Credentials for accessing the database
 	$user = 'snturskey';
@@ -30,33 +24,28 @@
 	if (!$conn) {
 		die("Connection failed: " . mysqli_connect_error());
 	}
-	echo "Connected successfully";
 
 	// Query and the results. Rows are stored in the result variable
-	//$query = "SELECT first_name FROM users WHERE user_name='kdillon' AND password='pass'";
-	$query = "SELECT user_name FROM users WHERE user_name='$name' AND password='$pass'";
+	$query = "SELECT user_name, account_type FROM users WHERE user_name='$name' AND password='$pass'";
 	$result = mysql_query($query) or die('Error querying database.');
-
-	echo $result; 
 	
-	// Loop over the returned rows and access information by attribute if desired
-	// query will only return first name
-	/*while ($row = mysql_fetch_assoc($result)) {
-		print_r($row);
-
-		if ($name == $row['user_name']) {
-			header("Location:../home.html");
-		} else {
-			echo "no";
-		}
-
-		//header("Location:home.html");
-	}*/
-
+	// Change page if the user exists, otherwise stay on the login page
 	if ( ! mysql_num_rows($result) == 0 ) {	
-		header("Location:../home.html");	
+
+		while ($row = mysql_fetch_assoc($result)) {
+			if($row['account_type'] == 'MA') {
+				header("Location:../home.html");	
+			} else {
+				header("Location:../index.html");
+			}
+		}
+		
+	
 	} else {	
-		header("Location:../index.html");
+		echo "<script type=\"text/javascript\">
+			alert(\"Invalid Login.\");
+			window.history.go(-1);	
+		</script>";
 	}
 
 ?>
