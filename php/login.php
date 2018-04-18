@@ -34,9 +34,9 @@
 
 		while ($row = mysql_fetch_assoc($result)) {
 			if($row['account_type'] == 'MA') {
-				header("Location:../home.html");	
+				header("Location:../MA_home.html");	
 			} else {
-				header("Location:../index.html");
+				header("Location:../home.html");
 			}
 		}
 		

@@ -42,6 +42,11 @@ body {
 	height:100%;
 }
 
+.thinColumn {
+	width:20%;
+	height:100%;
+}
+
 .dropField {
 	background-color:white;
 	border:2px dotted black;
@@ -57,15 +62,10 @@ body {
 	overflow-x:hidden;
 }
 
-.workOrder {
-	height:150px;
-	//width:170px;
-	margin: 4% 25% 4% 25%;
-
-	flex:none;
-	//display:flex;	
-
-	border:1px solid red;
+iframe {
+	display:flex;
+	height:100%;
+	border:none;
 }
 
 #uploadButton {

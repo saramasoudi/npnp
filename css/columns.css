@@ -1,0 +1,11 @@
+.workOrder {
+	height:150px;
+	//width:170px;
+	margin: 4% 25% 4% 25%;
+
+	flex:none;
+	//display:flex;	
+
+	border:1px solid red;
+}
+
