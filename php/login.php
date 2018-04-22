@@ -26,7 +26,7 @@
 	}
 
 	// Query and the results. Rows are stored in the result variable
-	$query = "SELECT user_name, account_type FROM users WHERE user_name='$name' AND password='$pass'";
+	$query = "SELECT username, account_type FROM users WHERE username='$name' AND password='$pass'";
 	$result = mysql_query($query) or die('Error querying database.');
 	
 	// Change page if the user exists, otherwise stay on the login page
