@@ -2,6 +2,11 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script src="js/scripts.js"></script>
+
+	<meta name="google-signin-client_id" content="87351024214-6uo99d69pt45k5vb396ablsqag059g8k.apps.googleusercontent.com">
+
 	<script>
 		function login() {
 			var user_name = document.getElementById("user_name");
@@ -26,6 +31,9 @@
 				<button class="redirectButton">Login</button>
 			</form>
 		</span>
+
+	<div class="g-signin2" data-onsuccess="onSignIn"></div>	
+
 	</div>
 
 	<p onclick="noAccount()">Don't already have an account?</p>
