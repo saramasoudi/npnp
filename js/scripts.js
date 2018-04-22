@@ -1,20 +1,38 @@
 function authenticate(googleUser) {
 	
-	console.log("authenticate");
+	//console.log("authenticate");
 	var profile = googleUser.getBasicProfile();
 	var email = profile.getEmail();
 	var token = googleUser.getAuthResponse().id_token;
-	console.log(token);
+	//console.log(token);
+
+	var auth = "false";
+
+	$.ajax({
+		url:'php/authenticate.php',
+		type:'POST',
+		data: {
+			email:email,
+			token:token
+		},
+		success: function(data) { 
+			//alert("completed"); 
+			//console.log(data);
+			auth = data;
+		}
+	});
+
+	console.log(auth);
 }
 function onSignIn(googleUser) {
 
-	console.log("signIn func");
+	//console.log("signIn func");
 
 	var profile = googleUser.getBasicProfile();
- 	console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-	console.log('Name: ' + profile.getName());
-	console.log('Image URL: ' + profile.getImageUrl());
-	console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+ 	//console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+	//console.log('Name: ' + profile.getName());
+	//console.log('Image URL: ' + profile.getImageUrl());
+	//console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 	
 	authenticate(googleUser);
 }
