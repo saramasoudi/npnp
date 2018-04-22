@@ -7,6 +7,9 @@ function logout() {
 function home() {
 	window.location.href = 'home.html';
 }
+function uploadWO() {
+	toggleUpload();
+}
 function toggleOverlay() {
 	if ( document.getElementById("overlay").style.display == "block" ) {
 		document.getElementById("overlay").style.display = "none";
