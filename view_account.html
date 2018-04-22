@@ -5,57 +5,33 @@
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link rel="stylesheet" type="text/css" href="css/menu.css">
 
-	<script>
-		function home() {
-			window.location.href = 'home.html';
-		}
-		function logout() {
-			window.location.href = 'index.html';
-		}
-		function changePass() {
-			alert('LOL no');
-		}
-
-		function toggleOverlay() {
-			if ( document.getElementById("overlay").style.display == "block" ) {
-				document.getElementById("overlay").style.display = "none";
-			} else {
-				
-				document.getElementById("overlay").style.display = "block";
-			}
-
-		}
-		function togglePassword() {
-			toggleOverlay();
-			if ( document.getElementById("changePassword").style.display == "block" ) {
-				document.getElementById("changePassword").style.display = "none";
-			} else {
-				
-				document.getElementById("changePassword").style.display = "block";
-			}
-		}
-
-	</script>
+	<script src="js/scripts.js"></script>
 
 </head>
 
 <body>
 	<!-- navigation menu -->
 
-	<nav role='navigation'>
-		<div id="toggleMenu">
-			<input type="checkbox" />
-
-			<span></span>
-			<span></span>
-			<span></span>
-
-			<ul id="menu">
-				<li><button class="redirectButton" onclick="home()">Go Home</button></li>
-				<li><button class="redirectButton" onclick="logout()">Logout</button></li>
-			</ul>
+	<div id="menu">
+		<div id="menuToggleBar">
+			<div id="menuToggle" onclick="toggleMenu()">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
 		</div>
-	</nav>
+		<table id="options">
+			<tr>
+				<th><button class="redirectButton" onclick="viewAccount()">View My Account</button></th>
+			</tr>
+			<tr>
+				<th><button class="redirectButton" onclick="toggleSearch()">Search</button></th>
+			</tr>
+			<tr>
+				<th><button class="redirectButton" onclick="logout()">Logout</button></th>
+			</tr>
+		</table>
+	</div>
 
 	<!------------------------>
 

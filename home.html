@@ -5,30 +5,34 @@
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link rel="stylesheet" type="text/css" href="css/menu.css">
 
-	<script type="text/javascript" src="js/home.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
 
 </head>
 
 <body>
 
 	<!-- navigation menu -->
-
-	<nav role='navigation'>
-		<div id="toggleMenu">
-			<input type="checkbox" />
-
-			<span></span>
-			<span></span>
-			<span></span>
-
-			<ul id="menu">
-
-				<li><button class="redirectButton" onclick="viewAccount()">View My Account</button></li>
-				<li><button class="redirectButton" onclick="toggleSearch()">Search</button></li>
-				<li><button class="redirectButton" onclick="logout()">Logout</button></li>
-			</ul>
+	
+	<div id="menu">
+		<div id="menuToggleBar">
+			<div id="menuToggle" onclick="toggleMenu()">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
 		</div>
-	</nav>
+		<table id="options">
+			<tr>
+				<th><button class="redirectButton" onclick="viewAccount()">View My Account</button></th>
+			</tr>
+			<tr>
+				<th><button class="redirectButton" onclick="toggleSearch()">Search</button></th>
+			</tr>
+			<tr>
+				<th><button class="redirectButton" onclick="logout()">Logout</button></th>
+			</tr>
+		</table>
+	</div>
 
 	<!------------------------>
 
@@ -38,13 +42,6 @@
 		<span class="thinColumn">
 			<h2>Open WOs</h2>
 			<span class="dropField">
-				<!--<p>All open work orders.</p>-->
-				<!--<div class="workOrder"></div>
-				<div class="workOrder"></div>
-				<div class="workOrder"></div>
-				<div class="workOrder"></div>
-				<div class="workOrder"></div>
-				<div class="workOrder"></div>-->
 				<iframe src="php/open_wo.php"></iframe>
 			</span>
 		</span>
