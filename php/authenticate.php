@@ -1,9 +1,7 @@
 <?php
 	 // Code to retrieve variables sent from the html
-//	 if ($_SERVER["REQUEST_METHOD"] == "POST") {
  	$email = $_POST["email"];
 	$token = $_POST["token"];
-//   	}	
 
 	// Credentials for accessing the database
 	$user = 'snturskey';
@@ -30,9 +28,14 @@
 	      		$query = "UPDATE users SET id_token='$token' WHERE email='$email'";
 			$update_result = mysql_query($query) or die('Error updating database.');
 	      }
-		//echo $row['account_type'];
 		$at = $row['account_type'];
 	}
+
+	
+	if ($at != 'invalid') {
+		session_start();	
+		$_SESSION['token'] = $token;	
+	}	
 
 	echo $at;
 ?>
