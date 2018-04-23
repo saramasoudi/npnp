@@ -32,5 +32,8 @@
 
 	$query = "INSERT INTO wo (order_id, wo_pdf) VALUES ('$wo_id', '$pdf_wo')";
 	$result = mysql_query($query) or die('Error querying database.');
+	
+	header("Location:../home.html");
+
 ?>
 

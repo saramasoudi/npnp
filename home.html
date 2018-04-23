@@ -86,18 +86,19 @@
 			</div>
 
 			<form action="php/upload_wo.php" method="post">
+		
 				<table>
 					<tr>
 						<th><p>Select WO PDF(s) to add to queue:</p></th>
-						<th><input type="file" id="pdf_wo"></input></th>
+						<th><input type="file" name="pdf_wo"></input></th>
 					</tr>
 					<tr>
 						<th><p>Enter unique WO identification number:</p></th>
-						<th><input type="text" id="wo_id"></input></th>
+						<th><input type="text" name="wo_id"></input></th>
 					</tr>
 					<tr>
 						<th><th>
-						<th><input type="submit" value="Upload" class="redirectButton" id="formButton" onclick="uploadWO()"></input></th>
+						<th><input type="submit" value="Upload" class="redirectButton" id="formButton"></input></th>
 					</tr>
 				</table>
 			</form>
