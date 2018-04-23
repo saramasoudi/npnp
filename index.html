@@ -3,41 +3,22 @@
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
-	<script src="js/scripts.js"></script>
 
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<meta name="google-signin-client_id" content="87351024214-6uo99d69pt45k5vb396ablsqag059g8k.apps.googleusercontent.com">
 
-	<script>
-		function login() {
-			var user_name = document.getElementById("user_name");
-			var password = document.getElementById("password");
-			//alert("Logging in..."); 
-			//window.location.href = 'home.html';				
-		}
-		function noAccount() {
-			alert("That sucks");
-		}
-	</script>
+	<script src="js/scripts.js"></script>
 	
 </head>
 
 <body style="text-align:center">
 	<div id="loginBox">
 		<h1>Welcome to the UMBC Facilities MAPS</h1>
-		<span style="padding:5px;">
-			<form action="php/login.php" method="post">
-				User Name: <input type="text" id="user_name" name="user_name" ></input></br></br>
-				Password: <input type="text" id="password" name="password"></input></br></br>
-				<button class="redirectButton">Login</button>
-			</form>
-		</span>
-
-	<div class="g-signin2" data-onsuccess="onSignIn"></div>	
-
+		<p>Please sign in with your myUMBC credentials.</p>
+		<div style="margin:0 0 20px 42vw;">
+			<div class="g-signin2" data-onsuccess="onSignIn" ></div>	
+		</div>
 	</div>
-
-	<p onclick="noAccount()">Don't already have an account?</p>
 </body>
 
 </html>
