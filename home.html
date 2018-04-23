@@ -14,10 +14,12 @@
 
 </head>
 
-<body class="g-signin2" data-onsuccess="onRedirect">
+<!-- <body class="g-signin2" data-onsuccess="onSignIn"> -->
+<!-- <body onload="onRedirect()"> -->
 
-	<!-- navigation menu -->
-	
+<body>
+	<!-- navigation menu -->	
+	<!-- <div class="g-signin2" data-onsuccess="onSignIn" ></div> -->
 	<div id="menu">
 		<div id="menuToggleBar">
 			<div id="menuToggle" onclick="toggleMenu()">
@@ -82,20 +84,23 @@
 				<b>Upload New WO</b>
 				<button id= "closeOverlay" class="redirectButton" onclick="toggleUpload()">X</button>
 			</div>
-			<table>
-				<tr>
-					<th><p>Select WO PDF(s) to add to queue:</p></th>
-					<th><input type="file"></input></th>
-				</tr>
-				<tr>
-					<th><p>Enter unique WO identification number:</p></th>
-					<th><input type="text"></input></th>
-				</tr>
-				<tr>
-					<th><th>
-					<th><button class="redirectButton" id="formButton" onclick="uploadWO()">Upload</button></th>
-				</tr>
-			</table>
+
+			<form action="php/upload_wo.php" method="post">
+				<table>
+					<tr>
+						<th><p>Select WO PDF(s) to add to queue:</p></th>
+						<th><input type="file" id="pdf_wo"></input></th>
+					</tr>
+					<tr>
+						<th><p>Enter unique WO identification number:</p></th>
+						<th><input type="text" id="wo_id"></input></th>
+					</tr>
+					<tr>
+						<th><th>
+						<th><input type="submit" value="Upload" class="redirectButton" id="formButton" onclick="uploadWO()"></input></th>
+					</tr>
+				</table>
+			</form>
 		</div>
 		<div id="searchForm" class="overlayForm" style="min-height:300px;">
 			<div id="overlayHeader">

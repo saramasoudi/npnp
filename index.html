@@ -16,8 +16,15 @@
 		<h1>Welcome to the UMBC Facilities MAPS</h1>
 		<p>Please sign in with your myUMBC credentials.</p>
 		<div style="margin:0 0 20px 42vw;">
-			<div class="g-signin2" data-onsuccess="onSignIn" ></div>	
+		  <div class="g-signin2" data-onsuccess="onSignIn" id="login" ></div>
 		</div>
+		<script>
+		  document.getElementById("login").addEventListener("click", function(){
+		  alert("Hello World!");
+		  });
+		</script>
+
+
 	</div>
 </body>
 

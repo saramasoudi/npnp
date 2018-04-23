@@ -2,8 +2,13 @@
 
 function authenticate(googleUser) {
 	
+	console.log(googleUser);
+
 	//console.log("authenticate");
 	var profile = googleUser.getBasicProfile();
+
+	console.log(profile);
+
 	var email = profile.getEmail();
 	var token = googleUser.getAuthResponse().id_token;
 	//console.log(token);
@@ -34,29 +39,22 @@ function onSignIn(googleUser) {
 	var auth = authenticate(googleUser);
 	
 	//console.log(auth);
-
+	
 	if (auth.trim() != 'invalid') {
-
-		if (auth.trim() == "MA") {
-			location.assign('MA_home.html');
-		} else {
-			location.assign('home.html');
-		}
-	
+	    
+	    if (auth.trim() == "MA") {
+		location.assign('MA_home.html');
+	    } else {
+		location.assign('home.html');
+	    }
+	    
 	} else {
-		alert("User not authorizied. Contact Facilities for access.");
+	    alert("User not authorizied. Contact Facilities for access.");
+	    
 	}
-
+	 
 }
-function onRedirect(googleUser) {
 
-	var auth = authenticate(googleUser);
-	
-	if (auth.trim() == 'invalid') {
-		location.assign('index.html');
-	}
-			
-}
 function viewAccount() {
 	window.location.href='view_account.html';
 }

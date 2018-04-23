@@ -4,10 +4,8 @@
 	// This function will take a new work order and insert it into the database.
 
 	// Code to retrieve variables sent from the html
-	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		 $name = $_POST["user_name"];
- 		 $pass = $_POST["password"];
-   	}	
+	 $pdf_wo = $_POST["pdf_wo"];
+ 	 $wo_id = $_POST["wo_id"];	
 
 	// Credentials for accessing the database
 	$user = 'snturskey';
@@ -31,7 +29,5 @@
 		print_r($row);
 		print_r($row['first_name'])
 	}
-
-
 ?>
 
