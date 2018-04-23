@@ -93,15 +93,11 @@ function toggleSearch() {
 		document.getElementById("searchForm").style.display = "block";
 	}
 }
-function toggleMenu() {
-	
-	console.log("clicked");
-	
-	if ( document.getElementById("options").style.visibility == "hidden" ) {		
-		document.getElementById("options").style.visibility = "visible";
-
-	} else {
+function toggleMenu() {	
+	if ( document.getElementById("options").style.visibility == "visible" ) {		
 		document.getElementById("options").style.visibility = "hidden";
+	} else {
+		document.getElementById("options").style.visibility = "visible";
 	}
 }
 function togglePassword() {
