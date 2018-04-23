@@ -1,17 +1,9 @@
-<?php
+<link rel="stylesheet" type="text/css" href="../css/columns.css">
 
-	// PHP script for the  display_unassigned() function
-	// This function will grab the unassigned work orders and display them in the
-	// proper place on the page. 
-
-	// Code to retrieve variables sent from the html
-	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		 $name = $_POST["user_name"];
- 		 $pass = $_POST["password"];
-   	}	
+<?php	
 
 	// Credentials for accessing the database
-	$user = 'snturskey';
+	/*$user = 'snturskey';
 	$password = 'npnp';
 	$server_name = 'studentdb-maria.gl';
 
@@ -31,8 +23,11 @@
 	while ($row = mysql_fetch_assoc($result)) {
 		print_r($row);
 		print_r($row['first_name'])
+	}*/
+	
+	$numOfWOs = 4;
+
+	for($i=0; $i < $numOfWOs; $i++) {
+		echo "<div class='workOrder'></div>";
 	}
-
-
 ?>
-
