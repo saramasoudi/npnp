@@ -14,7 +14,11 @@ function onSignIn(googleUser) {
 		var auth = xhr.responseText;
 
 		if (auth.trim() == 'MA') {
-			window.location.href = 'MA_home.html';
+
+			//window.location.href = 'MA_home.html';
+
+			document.
+
 		} else if (auth.trim() == 'OA' || auth.trim() == 'SA') {
 			window.location.href = 'home.html';
 		} else {		

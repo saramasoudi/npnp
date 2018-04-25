@@ -1,19 +1,27 @@
-body {
-	margin:0 2% 0 2%;
+#mainBody {
+	margin:0;
+	padding: 0; 
+	height: 100%; 
+	overflow: hidden;
+}
+
+#mainFrame {
+
+	position:fixed;
+	height:100%;
+	width:100%;
+
 	background-color:#cce6ff;
 	font-family:"Arial";
-	overflow-x:hidden;
-	min-height:90vh;
 
-	position:relative;
+	left:0;
+	right:0;
+	bottom:0;
+	top:0;
 }
 
 #loginBox {
-	margin-top:5vh;
-
-	display:flex;
-	justify-content:center;	
-	flex-direction:column;
+	margin:2em;
 
 	background-color:white;
 	border:1px solid black;
