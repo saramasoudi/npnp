@@ -2,8 +2,9 @@
 	width:14%;
 	min-width:160px;
 
-	display:flex;
-		
+	//display:flex;
+	display: none;	
+	
 	flex-direction:column;
 	padding:10px;
 
