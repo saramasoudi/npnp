@@ -38,6 +38,65 @@
 			<div style="margin:17vh 0 0 42vw;z-index:2;" id="loginButton">
 				<div class="g-signin2" data-onsuccess="onSignIn"></div>
 			</div>	
+
+			<button id="uploadButton" onclick="toggleUpload()">+</button>
+
+			<!-- pop up overlays ------>
+
+			<div id="overlay">
+				<div id="uploadForm" class="overlayForm"> 
+					<div id="overlayHeader">
+						<b>Upload New WO</b>
+						<button id= "closeOverlay" class="redirectButton" onclick="toggleUpload()">X</button>
+					</div>
+
+					<form action="php/upload_wo.php" method="post">
+				
+						<table>
+							<tr>
+								<th><p>Select WO PDF(s) to add to queue:</p></th>
+								<th><input type="file" name="pdf_wo"></input></th>
+							</tr>
+							<tr>
+								<th><p>Enter unique WO identification number:</p></th>
+								<th><input type="text" name="wo_id"></input></th>
+							</tr>
+							<tr>
+								<th><th>
+								<th><input type="submit" value="Upload" class="redirectButton" id="formButton"></input></th>
+							</tr>
+						</table>
+					</form>
+				</div>
+				<div id="searchForm" class="overlayForm" style="min-height:300px;">
+					<div id="overlayHeader">
+						<b>Search</b>
+						<button id="closeOverlay" class="redirectButton" onclick="toggleSearch()">X</button>
+					</div>
+					<table>
+						<tr>
+							<th style="vertical-align:top;"><p style="margin-top:0;">Category:</p></th>
+							<th>
+								<input type="checkbox">Unassigned</input></br>
+								<input type="checkbox">Assigned</input></br>
+								<input type="checkbox">Submitted</input></br>
+								<input type="checkbox">Approved</input></br>
+							</th>
+						</tr>
+						<tr>
+							<th><p>MA:</p></th>
+							<th><input type="text"></input></th>
+						</tr>
+						<tr>
+							<th><p>WO Identification Number:</p></th>
+							<th><input type="text"></input></th>
+						</tr>
+						<th><th>
+							<th><input type="submit" value="Upload" class="redirectButton" id="formButton"></input></th>
+						</tr>
+					</table>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

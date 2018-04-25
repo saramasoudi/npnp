@@ -14,18 +14,19 @@ function onSignIn(googleUser) {
 		var auth = xhr.responseText;
 
 		if (auth.trim() == 'MA') {
-
-			//window.location.href = 'MA_home.html';
 			document.getElementById("mainFrame").src = "MA_home.html";
 			document.getElementById("loginButton").style.display = "none";
-			document.getElementById("menu").style.display = "flex";
+
+			document.getElementById("menu").style.display = "flex";		
 
 		} else if (auth.trim() == 'OA' || auth.trim() == 'SA') {
 			//window.location.href = 'home.html';
 			document.getElementById("mainFrame").src = "home.html";
 			document.getElementById("loginButton").style.display = "none";
+
 			document.getElementById("menu").style.display = "flex";
-	
+			document.getElementById("uploadButton").style.display = "block";		
+
 		} else {		
 			
 			var auth2 = gapi.auth2.getAuthInstance();
@@ -34,7 +35,6 @@ function onSignIn(googleUser) {
 			});
 
 			alert("User not authorized. Contact UMBC Facilities for access.");
-			//window.location.href = 'index.html';
 		}
 	};
 	xhr.send('token='+token+'&email='+email); 
@@ -48,6 +48,7 @@ function signOut() {
 		document.getElementById("mainFrame").src = "index.html";
 		document.getElementById("loginButton").style.display = "block";
 		document.getElementById("menu").style.display = "none";
+		toggleMenu();
 	});
 }
 

@@ -49,7 +49,7 @@
 	justify-content:space-around;
 
 	position:relative;
-	height:75vh;
+	height:80vh;
 }
 
 .column {
@@ -94,8 +94,12 @@ iframe {
 	width:60px;
 	
 	position:absolute;
-	bottom:0px;
-	left:0px;
+		
+	left:2%;
+	bottom:2%;
+
+	display:none;
+	
 }
 
 #uploadButton:hover, .redirectButton:hover {
@@ -168,18 +172,4 @@ iframe {
 #uploadForm.overlayForm {
 	min-height: 310px;
 	min-width: 300px;
-}
-
-#accountDetails {
-	position:absolute;
-	background-color:white;
-	text-align:center;
-	font-size:16px;
-	border:1px solid black;
-
-	left:10%;
-	right:10%;
-	top:10%;
-
-	padding:20px;
 }
