@@ -1,24 +1,19 @@
 <html>
-<head>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<meta name="google-signin-client_id" content="87351024214-6uo99d69pt45k5vb396ablsqag059g8k.apps.googleusercontent.com">
 
 	<script src="js/scripts.js"></script>
-	
-</head>
 
-<body style="text-align:center;margin:0;">
-	<div id="loginBox">
-		<h1>Welcome to the UMBC Facilities MAPS</h1>
-		<p>Please sign in with your myUMBC credentials.</p>
-		<div style="margin:0 0 20px 42vw;">
-		  <div class="g-signin2" data-onsuccess="onSignIn" id="login" ></div>
+
+	<body style="margin:0;">
+		<div id="mainBody">
+			<iframe src="login.html" id="mainFrame"></iframe>
+		
+			<div style="margin:17vh 0 0 42vw;z-index:2;" id="loginButton">
+				<div class="g-signin2" data-onsuccess="onSignIn"></div>
+			</div>	
 		</div>
-	</div>
-</body>
-
+	</body>
 </html>

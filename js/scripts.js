@@ -16,34 +16,28 @@ function onSignIn(googleUser) {
 		if (auth.trim() == 'MA') {
 
 			//window.location.href = 'MA_home.html';
-
-			document.
+			document.getElementById("mainFrame").src = "MA_home.html";
+			document.getElementById("loginButton").style.display = "none";
 
 		} else if (auth.trim() == 'OA' || auth.trim() == 'SA') {
-			window.location.href = 'home.html';
+			//window.location.href = 'home.html';
+			document.getElementById("mainFrame").src = "home.html";
+			document.getElementById("loginButton").style.display = "none";
+	
 		} else {		
 			signOut();
 			alert("User not authorized. Contact UMBC Facilities for access.");
-			window.location.href = 'index.html';
+			//window.location.href = 'index.html';
 		}
 	};
 	xhr.send('token='+token+'&email='+email); 
 }
-
 
 function signOut() {
 	var auth2 = gapi.auth2.getAuthInstance();
 	auth2.signOut().then(function() {
 		console.log('User signed out.');
 	});
-}
-
-function authenticate() {
-
-}
-
-function home() {
-	window.location.href = 'home.html';
 }
 
 function uploadWO() {
