@@ -24,6 +24,7 @@
 
 	// Query and the results. Rows are stored in the result variable
 	$query = "DELETE FROM wo (order_id, wo_pdf)"; //not sure if that is it 
+	//$query = "DELETE (order_id, wo_pdf) FROM wo"; //might be this 
 	$result = mysql_query($query) or die('Error querying database.');
 
 	// Loop over the returned rows and access information by attribute if desired
