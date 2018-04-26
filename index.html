@@ -15,7 +15,7 @@
 
 			<div id="menu">
 				<div id="menuToggleBar">
-					<div id="menuToggle" onclick="toggleMenu()">
+					<div id="menuToggle" onclick="toggle(this.id)">
 						<span></span>
 						<span></span>
 						<span></span>
@@ -23,7 +23,7 @@
 				</div>
 				<table id="options">
 					<tr>
-						<th><button class="redirectButton" onclick="toggleSearch()">Search</button></th>
+						<th><button id="searchButton" class="redirectButton" onclick="toggle(this.id)">Search</button></th>
 					</tr>
 					<tr>
 						<th><button class="redirectButton" onclick="signOut()">Logout</button></th>
@@ -35,11 +35,11 @@
 
 			<iframe src="login.html" id="mainFrame"></iframe>
 		
-			<div style="margin:17vh 0 0 42vw;z-index:2;" id="loginButton">
+			<div style="margin:150px 0 0 42vw;z-index:2;" id="loginButton">
 				<div class="g-signin2" data-onsuccess="onSignIn"></div>
 			</div>	
 
-			<button id="uploadButton" onclick="toggleUpload()">+</button>
+			<button id="uploadButton" onclick="toggle(this.id)">+</button>
 
 			<!-- pop up overlays ------>
 
@@ -47,7 +47,7 @@
 				<div id="uploadForm" class="overlayForm"> 
 					<div id="overlayHeader">
 						<b>Upload New WO</b>
-						<button id= "closeOverlay" class="redirectButton" onclick="toggleUpload()">X</button>
+						<button id="exitUpload" class="redirectButton" onclick="toggle(this.id)">X</button>
 					</div>
 
 					<form action="php/upload_wo.php" method="post">
@@ -71,7 +71,7 @@
 				<div id="searchForm" class="overlayForm" style="min-height:300px;">
 					<div id="overlayHeader">
 						<b>Search</b>
-						<button id="closeOverlay" class="redirectButton" onclick="toggleSearch()">X</button>
+						<button id="exitSearch" class="redirectButton" onclick="toggle(this.id)">X</button>
 					</div>
 					<table>
 						<tr>
@@ -97,6 +97,8 @@
 					</table>
 				</div>
 			</div>
+
+			<!------------------------------------>
 		</div>
 	</body>
 </html>

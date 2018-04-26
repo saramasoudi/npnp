@@ -20,7 +20,6 @@ function onSignIn(googleUser) {
 			document.getElementById("menu").style.display = "flex";		
 
 		} else if (auth.trim() == 'OA' || auth.trim() == 'SA') {
-			//window.location.href = 'home.html';
 			document.getElementById("mainFrame").src = "home.html";
 			document.getElementById("loginButton").style.display = "none";
 
@@ -43,61 +42,56 @@ function onSignIn(googleUser) {
 function signOut() {
 	var auth2 = gapi.auth2.getAuthInstance();
 	auth2.signOut().then(function() {
-		console.log('User signed out.');
-
 		document.getElementById("mainFrame").src = "index.html";
 		document.getElementById("loginButton").style.display = "block";
 		document.getElementById("menu").style.display = "none";
-		toggleMenu();
+		document.getElementById("options").style.visibility = "hidden";
+		document.getElementById("uploadButton").style.display = "none";
 	});
 }
 
-function uploadWO() {
-	toggleUpload();
-}
+function toggle(element) {
 
-function toggleOverlay() {
-	if ( document.getElementById("overlay").style.display == "block" ) {
-		document.getElementById("overlay").style.display = "none";
-	} else {
+	var id;
+	var _id;
+
+	if (element == "uploadButton" || element == "exitUpload") {
+		id = "uploadForm";
+	} else if (element == "searchButton" || element == "exitSearch") {
+		id = "searchForm";
 		
-		document.getElementById("overlay").style.display = "block";
+		// close menu when search overlay pops up
+		if (element == "searchButton") {
+			_id = "options";
+		}
+
+	} else if (element == "menuToggle") {
+		id = "options";
+	}  
+
+	if (id == "options") {
+		toggleMenu();		
+	} else { 
+	
+		if ( document.getElementById(id).style.display == "block" ) {
+			document.getElementById(id).style.display = "none";
+			document.getElementById("overlay").style.display = "none";			
+		} else {
+			document.getElementById(id).style.display = "block";
+			document.getElementById("overlay").style.display = "block";
+		}
+
+		if (_id == "options") {
+			toggleMenu();
+		}
 	}
 }
 
-function toggleUpload() {
-	toggleOverlay();
-	if ( document.getElementById("uploadForm").style.display == "block" ) {
-		document.getElementById("uploadForm").style.display = "none";
-	} else {
-		
-		document.getElementById("uploadForm").style.display = "block";
-	}
-}
+function toggleMenu() {  
 
-function toggleSearch() {
-	toggleOverlay();
-	if ( document.getElementById("searchForm").style.display == "block" ) {
-		document.getElementById("searchForm").style.display = "none";
-	} else {
-		
-		document.getElementById("searchForm").style.display = "block";
-	}
-}
-
-function toggleMenu() {	
-	if ( document.getElementById("options").style.visibility == "visible" ) {		
-		document.getElementById("options").style.visibility = "hidden";
+	if ( document.getElementById("options").style.visibility == "visible" ) {
+		document.getElementById("options").style.visibility = "hidden";			
 	} else {
 		document.getElementById("options").style.visibility = "visible";
-	}
-}
-
-function togglePassword() {
-	toggleOverlay();
-	if ( document.getElementById("changePassword").style.display == "block" ) {
-		document.getElementById("changePassword").style.display = "none";
-	} else {				
-		document.getElementById("changePassword").style.display = "block";
 	}
 }

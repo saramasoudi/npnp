@@ -23,6 +23,8 @@
 #loginBox {
 	margin:2em;
 
+	min-width:550px;
+
 	background-color:white;
 	border:1px solid black;
 	padding:10px;
@@ -161,7 +163,8 @@ iframe {
 	min-width: 270px;
 }
 
-#closeOverlay.redirectButton {
+#exitSearch.redirectButton,
+#exitUpload.redirectButton {
 	float:right;
 	width:25px;
 	height:25px;
