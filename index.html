@@ -7,7 +7,6 @@
 
 	<script src="js/scripts.js"></script>
 
-
 	<body style="margin:0;">
 		<div id="mainBody">
 	
@@ -23,9 +22,11 @@
 				</div>
 				<table id="options">
 					<tr>
+						<!-- this menu option should only be visible to SA -->
 						<th><button id="accountButton" class="redirectButton" onclick="toggle(this.id)">Accounts</button></th>
 					</tr>
 					<tr>
+						<!-- this menu option should only be visible to OA & SA -->
 						<th><button id="searchButton" class="redirectButton" onclick="toggle(this.id)">Search</button></th>
 					</tr>
 					<tr>
@@ -34,7 +35,7 @@
 				</table>
 			</div>
 
-			<!------------------------>
+			<!------------------------------------>
 
 			<iframe src="login.html" id="mainFrame"></iframe>
 		
@@ -44,9 +45,12 @@
 
 			<button id="uploadButton" onclick="toggle(this.id)">+</button>
 
-			<!-- pop up overlays ------>
+			<!-- pop up overlays -->
 
 			<div id="overlay">
+				
+				<!-- upload form -->
+				
 				<div id="uploadForm" class="overlayForm"> 
 					<div id="overlayHeader">
 						<b>Upload New WO</b>
@@ -71,6 +75,11 @@
 						</table>
 					</form>
 				</div>
+
+				<!------------------------------------>
+
+				<!-- search form -->
+
 				<div id="searchForm" class="overlayForm" style="min-height:300px;">
 					<div id="overlayHeader">
 						<b>Search</b>
@@ -99,9 +108,35 @@
 						</tr>
 					</table>
 				</div>
+			
+				<!------------------------------------>
+
+				<!-- accounts form -->
+
+				<div id="accountsForm" class="overlayForm">
+					<div id="overlayHeader">
+						<b>System Accounts</b>
+						<button id="exitAccounts" class="redirectButton" onclick="toggle(this.id)">X</button>
+					</div>
+					<table>
+						<tr>
+							<th><p>Add user to system:</p></th>
+							<th><input type="text"></input></th>
+							<th><input type="submit" value="Add" class="redirectButton" id="formButton"></input></th
+						</tr>
+						<tr>
+							<th style="vertical-align:top;"><p style="margin-top:0;">Category:</p></th>
+							<th>
+								<iframe src="view_accounts.php"></iframe>
+							</th>
+						</tr>
+					</table>
+				</div>
 			</div>
 
 			<!------------------------------------>
 		</div>
+
+		<!------------------------------------>
 	</body>
 </html>
