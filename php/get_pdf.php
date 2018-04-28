@@ -22,7 +22,8 @@
 
 	// If the user's email is in the table and their token is null, update it
 	while ($row = mysql_fetch_assoc($result)) {
-	      echo $row['wo_pdf'];
+	        //echo $row['wo_pdf'];
+	        echo json_encode($row['wo_pdf']);
 	}
 
 ?>

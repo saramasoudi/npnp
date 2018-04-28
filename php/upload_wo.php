@@ -7,6 +7,8 @@
 	$pdf_wo = $_POST["pdf_wo"];
  	$wo_id = $_POST["wo_id"];		
 
+echo "<script>console.log('file count=', count($_FILES),'\n');</script>";
+
 	// Credentials for accessing the database
 	$user = 'snturskey';
 	$password = 'npnp';

@@ -73,8 +73,10 @@ function signOut() {
 
 function uploadWO() {
 	
-	var pdf = document.getElementById("pdf_wo").files;
+	var pdf = document.getElementById("pdf_wo").files[0];
 	var id = document.getElementById("wo_id").value;
+	
+	console.log(pdf);
 
 	var pdfPath = document.getElementById("pdf_wo").value;
 
@@ -87,6 +89,10 @@ function uploadWO() {
 		if (id == 0) {
 			alert("Not a valid WO id number.");
 		} else {
+		        var data = new FormData();
+			data.append('pdf_wo', pdf);
+			data.append('wo_id', id);
+			console.log(data);
 
 			var xhr = new XMLHttpRequest();
 			xhr.open('POST', 'php/upload_wo.php');
@@ -101,7 +107,9 @@ function uploadWO() {
 				//document.getElementById("pdf_wo").value = "";
 				//document.getElementById("wo_id").value = "";
 			}
-			xhr.send('pdf_wo='+pdf[0]+'&wo_id='+id); 
+			console.log(pdf);
+			//xhr.send('pdf_wo='+data+'&wo_id='+id); 
+			xhr.send(data);
 		}
 	}
 }
@@ -191,9 +199,9 @@ function toggle(element) {
 			document.getElementById("overlay").style.display = "none";			
 		} else {
 
-			/*if (id == "previewForm") {
+			if (id == "previewForm") {
 				showPreview(element);
-			}*/
+			}
 
 			document.getElementById(id).style.display = "block";
 			document.getElementById("overlay").style.display = "block";
@@ -206,10 +214,13 @@ function showPreview(element) {
 	xhr.open('POST', 'php/get_pdf.php');
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		xhr.onload = function() {
-		var auth = xhr.responseText;
-			console.log(auth);
+		    var auth = xhr.responseText;
+		    console.log(auth);
+		    var pdf = JSON.parse(auth);
+		    console.log(pdf);
 		}
 	xhr.send('order_id='+element); 
+
 }
 
 // menu uses visibility instead of display for style reasons 
