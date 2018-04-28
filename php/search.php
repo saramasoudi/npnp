@@ -7,12 +7,12 @@
 
 	// Code to retrieve variables sent from the html
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		 $unassigned = $_POST["unassigned"];
- 		 $assigned = $_POST["assigned"];
-		 $submitted = $_POST["submitted"];
- 		 $approved = $_POST["approved"];
-		 $ma_email = $_POST["ma_email"];
-		 $wo_id = $_POST["wo_id"];
+		$unassigned = $_POST["unassigned"];
+		$assigned = $_POST["assigned"];
+		$submitted = $_POST["submitted"];
+		$approved = $_POST["approved"];
+		$ma_email = $_POST["ma_email"];
+		$wo_id = $_POST["wo_id"];
    	}
 
 	// Credentials for accessing the database
