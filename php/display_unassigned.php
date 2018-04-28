@@ -2,6 +2,10 @@
 
 <?php	
 
+	// PHP script for the  display_unassigned() function
+	// This function will grab the unassigned work orders and display them in the
+	// proper place on the page. 
+
 	// Credentials for accessing the database
 	$user = 'snturskey';
 	$password = 'npnp';
@@ -25,8 +29,6 @@
 		     	  <div class='pdfPreview'></div>
 		     	  <caption id='woID'>".$wo['order_id']."</caption></br>
 		      </div>";		
-		
-		//print_r($row['first_name'])
 	}
 	
 ?>
