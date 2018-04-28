@@ -1,3 +1,22 @@
+body {
+	//position:fixed;
+	height:100%;
+	width:100%;
+
+	background-color:#cce6ff;
+	font-family:"Arial";
+
+	//left:0;
+	//right:0;
+	//bottom:0;
+	//top:0;
+}
+
+#homeContainer {
+	display:none;
+}
+
+
 #mainBody {
 	margin:0;
 	padding: 0;
