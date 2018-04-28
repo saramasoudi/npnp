@@ -23,7 +23,7 @@
 	while ($wo = mysql_fetch_assoc($result)) {
 		echo "<div class='workOrder'>
 		     	  <div class='pdfPreview'></div>
-		     	  <caption id='woID'>".$row['order_id']."</caption>
+		     	  <caption id='woID'>".$wo['order_id']."</caption>
 		      </div>";		
 		
 		//print_r($row['first_name'])
