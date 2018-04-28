@@ -36,6 +36,13 @@ function onSignIn(googleUser) {
 			document.getElementById("menu").style.display = "flex";
 			document.getElementById("uploadButton").style.display = "block";		
 
+			document.getElementById("cat_search").style.display = "table-row";		
+			document.getElementById("ma_search").style.display = "table-row";	
+
+			//if (auth.trim() == 'SA') {
+				document.getElementById("_accounts").style.display = "table-row";
+			//}
+
 		} else {		
 			
 			// sign user out of google 
@@ -62,6 +69,11 @@ function signOut() {
 		document.getElementById("menu").style.display = "none";
 		document.getElementById("options").style.visibility = "hidden";
 		document.getElementById("uploadButton").style.display = "none";
+		document.getElementById("_accounts").style.display = "none";
+
+		document.getElementById("cat_search").style.display = "none";		
+		document.getElementById("ma_search").style.display = "none";		
+
 	});
 }
 

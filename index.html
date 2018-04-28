@@ -1,6 +1,9 @@
+<!DOCTYPE html>
 <html>
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
-	<link rel="stylesheet" type="text/css" href="css/menu.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+	<link rel="stylesheet" type="text/css" href="css/menu.css" />
+	<link rel="stylesheet" type="text/css" href="css/overlay.css" />	
+	<link rel="stylesheet" type="text/css" href="css/buttons.css" />		
 
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<meta name="google-signin-client_id" content="87351024214-6uo99d69pt45k5vb396ablsqag059g8k.apps.googleusercontent.com">
@@ -21,9 +24,9 @@
 					</div>
 				</div>
 				<table id="options">
-					<tr>
+					<tr id="_accounts">
 						<!-- this menu option should only be visible to SA -->
-						<th><button id="accountButton" class="redirectButton" onclick="toggle(this.id)">Accounts</button></th>
+						<th><button id="accountsButton" class="redirectButton" onclick="toggle(this.id)">Accounts</button></th>
 					</tr>
 					<tr>
 						<!-- this menu option should only be visible to OA & SA -->
@@ -86,7 +89,7 @@
 						<button id="exitSearch" class="redirectButton" onclick="toggle(this.id)">X</button>
 					</div>
 					<table>
-						<tr>
+						<tr id="cat_search">
 							<th style="vertical-align:top;"><p style="margin-top:0;">Category:</p></th>
 							<th>
 								<input type="checkbox">Unassigned</input></br>
@@ -95,7 +98,7 @@
 								<input type="checkbox">Approved</input></br>
 							</th>
 						</tr>
-						<tr>
+						<tr id="ma_search">
 							<th><p>MA:</p></th>
 							<th><input type="text"></input></th>
 						</tr>
@@ -104,7 +107,7 @@
 							<th><input type="text"></input></th>
 						</tr>
 						<th><th>
-							<th><input type="submit" value="Upload" class="redirectButton" id="formButton"></input></th>
+							<th><input type="submit" value="Search" class="redirectButton" id="formButton"></input></th>
 						</tr>
 					</table>
 				</div>
@@ -122,12 +125,12 @@
 						<tr>
 							<th><p>Add user to system:</p></th>
 							<th><input type="text"></input></th>
-							<th><input type="submit" value="Add" class="redirectButton" id="formButton"></input></th>
+							<th><input type="submit" value="Add" class="redirectButton"></input></th>
 						</tr>
 						<tr>
-							<th style="vertical-align:top;"><p style="margin-top:0;">Category:</p></th>
+							<th style="vertical-align:top;"><p style="margin-top:0;">Accounts:</p></th>
 							<th>
-								<iframe src="view_accounts.php"></iframe>
+								<!-- <iframe src="view_accounts.php"></iframe> -->
 							</th>
 						</tr>
 					</table>

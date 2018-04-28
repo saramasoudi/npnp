@@ -63,8 +63,12 @@
 	padding-bottom:5px;
 }
 
-#menu button {
+#menu button, 
+#accountsButton {
 	width:100%;
 	font-size:20px;
 }
 
+#_accounts {
+	display:none;
+}

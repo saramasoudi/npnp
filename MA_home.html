@@ -2,90 +2,36 @@
 <html>
 
 <head>
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
-	<link rel="stylesheet" type="text/css" href="css/menu.css">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
-	<meta name="google-signin-client_id" content="87351024214-6uo99d69pt45k5vb396ablsqag059g8k.apps.googleusercontent.com">
+	<link rel="stylesheet" type="text/css" href="css/styles.css" />	
+	<link rel="stylesheet" type="text/css" href="css/buttons.css" />		
 
 	<script type="text/javascript" src="js/scripts.js"></script>
 
 </head>
 
-<!-- <body class="g-signin2" data-onsuccess="onRedirect"> -->
 <body>
-
-	<!-- navigation menu -->
-
-	<div id="menu">
-		<div id="menuToggleBar">
-			<div id="menuToggle" onclick="toggleMenu()">
-				<span></span>
-				<span></span>
-				<span></span>
-			</div>
-		</div>
-		<table id="options">
-			<tr>
-				<th><button class="redirectButton" onclick="toggleSearch()">Search</button></th>
-			</tr>
-			<tr>
-				<th><button class="redirectButton" onclick="signOut()">Logout</button></th>
-			</tr>
-		</table>
-	</div>
-
-	<!------------------------>
-
-
-	</br>
 
 	<div id="columnBody">
 		<span class="column">
 			<h2>Open WOs</h2>
 			<span class="dropField">
-				<iframe src="php/open_wo.php"></iframe>
+				<!-- <iframe src="php/open_wo.php"></iframe> -->
 			</span>
 		</span>
 		<span class="column">
 			<h2>Assigned</h2>
 			<span class="dropField">
-				<!--<p>Work orders assigned to me.</p>-->
-				<!--<div class="workOrder"></div>-->
+				
 			</span>
 		</span>
 		<span class="column">
 			<h2>Submitted</h2>
 			<span class="dropField">
-				<!--<p>Work orders submitted by me.</p>-->
+				
 			</span>
 		</span>
 	</div> 
-
-	<!-- pop up overlays ------>
-
-	<div id="overlay">		
-		<div id="searchForm" class="overlayForm" style="min-height:300px;">
-			<div id="overlayHeader">
-				<b>Search</b>
-				<button id="closeOverlay" class="redirectButton" onclick="toggleSearch()">X</button>
-			</div>
-			<table>
-				<tr>
-					<th><p>WO Identification Number:</p></th>
-					<th><input type="text"></input></th>
-				</tr>
-				<tr>
-					<th></th>
-					<th><button class="redirectButton" id="formButton" onclick="toggleSearch()">Search</button></th>
-				</tr>
-			</table>
-		</div>
-	</div>
-
-	<!---------------------------->
 
 </body>
 
