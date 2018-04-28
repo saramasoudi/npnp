@@ -76,24 +76,32 @@ function uploadWO() {
 	var pdf = document.getElementById("pdf_wo").value;
 	var id = document.getElementById("wo_id").value;
 
-	console.log("pdf: "+pdf);
-	console.log("id: "+id);
+	// verify pdf selection 
+	var ext = pdf.substring(pdf.lastIndexOf('.')+1);
+	if (ext != "pdf") {
+		alert("File type not supported.");
+	} else { 		
+	
+		if (id == 0) {
+			alert("Not a valid WO id number.");
+		} else {
 
-	var xhr = new XMLHttpRequest();
-	xhr.open('POST', 'php/upload_wo.php');
-	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-	xhr.onload = function() {
-		var auth = xhr.responseText;
-		console.log(auth);
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', 'php/upload_wo.php');
+			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			xhr.onload = function() {
+				var auth = xhr.responseText;
+				console.log(auth);
 
-		// reload unassigned iframe
-		document.getElementById("openFrame").contentWindow.location.reload();
-		toggle("uploadButton");
+				// reload unassigned iframe
+				document.getElementById("openFrame").contentWindow.location.reload();
+				toggle("uploadButton");
+				//document.getElementById("pdf_wo").value = "";
+				//document.getElementById("wo_id").value = "";
+			}
+			xhr.send('pdf_wo='+pdf+'&wo_id='+id); 
+		}
 	}
-	xhr.send('pdf_wo='+pdf+'&wo_id='+id); 
-
-	var pdf = document.getElementById("pdf_wo").value = "";
-	var id = document.getElementById("wo_id").value = "";
 }
 
 function toggle(element) {
@@ -103,6 +111,10 @@ function toggle(element) {
 	// upload button click
 	if (element == "uploadButton" || element == "exitUpload") {
 		id = "uploadForm";
+
+		document.getElementById("pdf_wo").value = "";
+		document.getElementById("wo_id").value = "";
+
 	// search menu option selected
 	} else if (element == "searchButton" || element == "exitSearch") {
 		id = "searchForm";
