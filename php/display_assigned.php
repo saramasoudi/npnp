@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="../css/columns.css">
+
 <?php
 
 	// PHP script for the  display_assigned() function
@@ -6,9 +8,8 @@
 
 	// Code to retrieve variables sent from the html
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		 $name = $_POST["user_name"];
- 		 $pass = $_POST["password"];
-   	}	
+		 $user = $_POST["user"];
+	}	
 
 	// Credentials for accessing the database
 	$user = 'snturskey';
@@ -22,17 +23,32 @@
 	if (!$conn) {
 		die("Connection failed: " . mysqli_connect_error());
 	}
-
-	// Query and the results. Rows are stored in the result variable
-	$query = "SELECT * FROM users";
+	
+	$acc;
+	// Query the users to see what type of user is currently logged in
+	$query = "SELECT * FROM users WHERE email = '$user'";	
 	$result = mysql_query($query) or die('Error querying database.');
-
-	// Loop over the returned rows and access information by attribute if desired
-	while ($row = mysql_fetch_assoc($result)) {
-		print_r($row);
-		print_r($row['first_name'])
+	while ($usr = mysql_fetch_assoc($result)) {
+	      $acc = Susr['account_type'];
 	}
+	
+	// Query and the results. Rows are stored in the result variable
+	// If the user is an MA, they can only see their own assigned work orders
+	if ($user != 'MA') {
+	   $query = "SELECT * FROM wo WHERE status = 'unassigned'";
+	} else {
+	  $query = "SELECT * FROM wo WHERE status = 'assigned' AND assigned_ma ='$user'";
+	}
+	$result = mysql_query($query) or die('Error querying database.');	
 
+	// Loop over the returned rows and display the wo's
+	while ($wo = mysql_fetch_assoc($result)) {
+		echo "<div class='workOrder'>
+		     	  <div class='pdfPreview'></div>
+		     	  <caption id='woID'>".$wo['order_id']."</caption></br>
+			  <caption id='maID'>".$wo['assigned_ma']."</caption></br>	
+		      </div>";		
+	}
 
 ?>
 
