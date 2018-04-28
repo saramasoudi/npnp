@@ -45,34 +45,34 @@
 		if ($unassigned == 'True') {
 			$query1 = "SELECT * FROM wo WHERE status = 'unassigned'";
 			if ($ma_email != 	NULL) {
-				$query1 .= "AND assigned_ma = $ma_email"
+				$query1 .= " AND assigned_ma = $ma_email"
 			}
 			$result1 = mysql_query($query1) or die('Error querying database.');
 		}
 		if ($assigned == 'True') {
 			$query2 = "SELECT * FROM wo WHERE status = 'assigned'";
 			if ($ma_email != 	NULL) {
-				$query2 .= "AND assigned_ma = $ma_email"
+				$query2 .= " AND assigned_ma = $ma_email"
 			}
 			$result2 = mysql_query($query2) or die('Error querying database.');
 		}
 		if ($submitted == 'True') {
 			$query3 = "SELECT * FROM wo WHERE status = 'submitted'";
 			if ($ma_email != 	NULL) {
-				$query3 .= "AND assigned_ma = $ma_email"
+				$query3 .= " AND assigned_ma = $ma_email"
 			}
 			$result3 = mysql_query($query3) or die('Error querying database.');
 		}
 		if ($approved == 'True') {
 			$query4 = "SELECT * FROM wo WHERE status = 'approved'";
 			if ($ma_email != 	NULL) {
-				$query4 .= "AND assigned_ma = $ma_email"
+				$query4 .= " AND assigned_ma = $ma_email"
 			}
 			$result4 = mysql_query($query4) or die('Error querying database.');
 		}
 	}
 
-	
+
 	// Loop over the returned rows and access information by attribute if desired
 	while ($row = mysql_fetch_assoc($result)) {
 		print_r($row);
