@@ -1,13 +1,16 @@
 .workOrder {
+	bottom:5%;
+}
+
+.pdfPreview {
 	height:150px;
 	//width:170px;
-	margin: 4% 25% 4% 25%;
+	margin: 4% 25% 0% 25%;
 
 	flex:none;
 	//display:flex;	
 
 	border:1px solid red;
 	background-image: url("wo_preview.png");
-	background-repeat: no-repeat;
 	background-size: auto;
 }
