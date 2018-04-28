@@ -9,16 +9,18 @@
 	bottom:0;
 	background-color:rgba(0,0,0,0.5);
 	z-index:2;
-	/*cursor:pointer;*/
 }
 
 .overlayForm {
 	background-color:white;
 	position:absolute;
-	top:25%;
-	left:30%;
-	right:30%;
-	height:40%;
+
+	left:25vw;
+	right:25vw;
+
+	top:15vh;
+	bottom:15vh;
+
 	padding:10px;
 	display:none;
 }
@@ -28,6 +30,8 @@
 	width:100%;
 	border-collapse:collapse;
 	font-size:18px;
+
+	display:flex;
 }
 
 .overlayForm th {
@@ -43,13 +47,19 @@
 
 #searchForm.overlayForm {
 	min-height: 300px;
-	min-width: 270px;
+	min-width: 432px;
 }
 
 #uploadForm.overlayForm {
 	min-height: 310px;
 	min-width: 300px;
 }
+
+#accountsForm.overlayForm {
+	min-height: 310px;
+	min-width: 416px;
+}
+
 
 #accounts, 
 #cat_search,
