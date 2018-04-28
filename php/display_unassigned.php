@@ -26,7 +26,7 @@
 	// Loop over the returned rows and access information by attribute if desired
 	while ($wo = mysql_fetch_assoc($result)) {
 		echo "<div class='workOrder'>
-		     	  <div class='pdfPreview'></div>
+		     	  <div class='pdfPreview' id=".$wo['order_id']."></div>
 		     	  <caption id='woID'>".$wo['order_id']."</caption></br>
 		      </div>";		
 	}
