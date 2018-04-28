@@ -1,11 +1,19 @@
 .workOrder {
 	bottom:5%;
+	text-align:center;
+	
+	width:auto;
+	margin: 10% 1em 0 1em;
 }
 
 .pdfPreview {
 	height:150px;
-	//width:170px;
-	margin: 4% 25% 0% 25%;
+	width:135px;
+	//height:auto;
+	//width:auto;
+		
+	margin:0 auto;
+	text-align:center;
 
 	flex:none;
 	//display:flex;	

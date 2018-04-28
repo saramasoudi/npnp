@@ -26,14 +26,17 @@ function onSignIn(googleUser) {
 
 			if (auth.trim() == 'OA' || auth.trim() == 'SA') {
 					
+				console.log("elevated permission");
+
 				document.getElementById("uploadButton").style.display = "block";		
 	
 				document.getElementById("cat_search").style.display = "table-row";		
 				document.getElementById("ma_search").style.display = "table-row";	
+				document.getElementById("_column").style.display = "block";
 
-				//if (auth.trim() == 'SA') {
+				if (auth.trim() == 'SA') {
 					document.getElementById("_accounts").style.display = "table-row";
-				//}
+				}
 			}
 
 		} else {		
@@ -63,6 +66,7 @@ function signOut() {
 		document.getElementById("_accounts").style.display = "none";
 		document.getElementById("cat_search").style.display = "none";		
 		document.getElementById("ma_search").style.display = "none";		
+		document.getElementById("_column").style.display = "none";
 
 	});
 }

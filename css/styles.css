@@ -66,17 +66,14 @@ body {
 }
 
 .column {
-	width:25%;
-	height:100%;
-
-	min-width: 118px;
-}
-
-.thinColumn {
 	width:20%;
 	height:100%;
 
-	min-width:115px;
+	min-width: 185px;
+}
+
+#_column {
+	display:none;
 }
 
 .dropField {
@@ -90,7 +87,7 @@ body {
 	//justify-content:center;
 	flex-direction: column;
 
-	overflow:auto;
+	//overflow:auto;
 	overflow-x:hidden;
 }
 
@@ -98,4 +95,5 @@ iframe {
 	display:flex;
 	height:100%;
 	border:none;
+	overflow-x:hidden;
 }
