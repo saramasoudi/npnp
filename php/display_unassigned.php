@@ -21,10 +21,9 @@
 
 	// Loop over the returned rows and access information by attribute if desired
 	while ($wo = mysql_fetch_assoc($result)) {
-		echo "<div class="workOrder">
-		     	  <div class="pdfPreview"></div>
-		     	  <caption id="woID">1234567890</caption></br>
-		     	  <caption id="woMA">Sara Masoudi</caption>
+		echo "<div class='workOrder'>
+		     	  <div class='pdfPreview'></div>
+		     	  <caption id='woID'>".$row['order_id']."</caption>
 		      </div>";		
 		
 		//print_r($row['first_name'])
