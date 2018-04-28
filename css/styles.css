@@ -6,6 +6,8 @@ body {
 	background-color:#cce6ff;
 	font-family:"Arial";
 
+	overflow-x:hidden;
+
 	//left:0;
 	//right:0;
 	//bottom:0;
@@ -96,15 +98,4 @@ iframe {
 	display:flex;
 	height:100%;
 	border:none;
-}
-
-.workOrder {
-	height:150px;
-	//width:170px;
-	margin: 4% 25% 4% 25%;
-
-	flex:none;
-	//display:flex;	
-
-	border:1px solid red;
 }
