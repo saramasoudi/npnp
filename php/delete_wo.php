@@ -22,8 +22,8 @@
 	}
 
 	// Query and the results. Rows are stored in the result variable
-	$query = "DELETE FROM wo WHERE order_id = $wo_id";
- 
+	$query = "DELETE FROM wo WHERE order_id = '$wo_id'";
+
 	$result = mysql_query($query) or die('Error querying database.');
 
 ?>
