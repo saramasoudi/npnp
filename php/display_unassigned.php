@@ -3,7 +3,7 @@
 <?php	
 
 	// Credentials for accessing the database
-	/*$user = 'snturskey';
+	$user = 'snturskey';
 	$password = 'npnp';
 	$server_name = 'studentdb-maria.gl';
 
@@ -20,14 +20,14 @@
 	$result = mysql_query($query) or die('Error querying database.');
 
 	// Loop over the returned rows and access information by attribute if desired
-	while ($row = mysql_fetch_assoc($result)) {
-		print_r($row);
-		print_r($row['first_name'])
-	}*/
-	
-	$numOfWOs = 4;
-
-	for($i=0; $i < $numOfWOs; $i++) {
-		echo "<div class='workOrder'></div>";
+	while ($wo = mysql_fetch_assoc($result)) {
+		echo "<div class="workOrder">
+		     	  <div class="pdfPreview"></div>
+		     	  <caption id="woID">1234567890</caption></br>
+		     	  <caption id="woMA">Sara Masoudi</caption>
+		      </div>";		
+		
+		//print_r($row['first_name'])
 	}
+	
 ?>
