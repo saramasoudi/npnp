@@ -7,9 +7,7 @@
 	// proper place on the page. 
 
 	// Code to retrieve variables sent from the html
-	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		 $user = $_POST["user"];
-	}	
+	$user = $_POST["user"];
 
 	// Credentials for accessing the database
 	$user = 'snturskey';

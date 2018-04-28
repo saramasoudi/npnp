@@ -104,6 +104,42 @@ function uploadWO() {
 	}
 }
 
+function display() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    var user = auth2.currentUser.get().email;
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'php/display_unassigned.php');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+	var auth = xhr.responseText;
+    }
+ 
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'php/display_assigned.php');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+	var auth = xhr.responseText;
+    }
+    xhr.send('user='+user);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'php/display_submitted.php');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+	var auth = xhr.responseText;
+    }
+    xhr.send('user='+user);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'php/display_approved.php');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+	var auth = xhr.responseText;
+    }
+    xhr.send('user='+user);
+}
+
 function toggle(element) {
 
 	var id = "options";
