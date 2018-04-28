@@ -19,35 +19,22 @@ function onSignIn(googleUser) {
 
 		console.log("auth "+auth);
 
-		if (auth.trim() == 'MA') {
-			
-			console.log("into MA");
+		if (auth.trim() != "invalid") {
 
-			// "redirect" to MA_home 
 			document.getElementById("loginContainer").style.display = "none";
-			document.getElementById("homeContainer").style.display = "initial";
-			
-			// hide login button and show menu
-			//document.getElementById("loginButton").style.display = "none";
-			//document.getElementById("menu").style.display = "flex";		
+			document.getElementById("homeContainer").style.display = "initial";		
 
-		} else if (auth.trim() == 'OA' || auth.trim() == 'SA') {
-			
-			// "redirect" to home
-			document.getElementById("loginContainer").style.display = "none";
-			document.getElementById("homeContainer").style.display = "initial";
-			
-			// hide login button and show menu and upload buttons
-			//document.getElementById("loginButton").style.display = "none";
-			//document.getElementById("menu").style.display = "flex";
-			document.getElementById("uploadButton").style.display = "block";		
+			if (auth.trim() == 'OA' || auth.trim() == 'SA') {
+					
+				document.getElementById("uploadButton").style.display = "block";		
+	
+				document.getElementById("cat_search").style.display = "table-row";		
+				document.getElementById("ma_search").style.display = "table-row";	
 
-			document.getElementById("cat_search").style.display = "table-row";		
-			document.getElementById("ma_search").style.display = "table-row";	
-
-			//if (auth.trim() == 'SA') {
-				document.getElementById("_accounts").style.display = "table-row";
-			//}
+				//if (auth.trim() == 'SA') {
+					document.getElementById("_accounts").style.display = "table-row";
+				//}
+			}
 
 		} else {		
 			
@@ -69,17 +56,11 @@ function signOut() {
 		document.getElementById("homeContainer").style.display = "none";
 		document.getElementById("loginContainer").style.display = "initial";
 		
-		
-		// enable the login button 
-		//document.getElementById("loginButton").style.display = "block";
-		
-		// hide buttons and menus 
-		//document.getElementById("menu").style.display = "none";
-
 		document.getElementById("options").style.visibility = "hidden";
+
+		// hide elevated permission 
 		document.getElementById("uploadButton").style.display = "none";
 		document.getElementById("_accounts").style.display = "none";
-
 		document.getElementById("cat_search").style.display = "none";		
 		document.getElementById("ma_search").style.display = "none";		
 
