@@ -7,12 +7,12 @@
 
 	// Code to retrieve variables sent from the html
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		 $unassigned = $_POST["unassigned"];
- 		 $assigned = $_POST["assigned"];
-		 $submitted = $_POST["submitted"];
- 		 $approved = $_POST["approved"];
-		 $ma_email = $_POST["ma_email"];
-		 $wo_id = $_POST["wo_id"];
+		$unassigned = $_POST["unassigned"];
+		$assigned = $_POST["assigned"];
+		$submitted = $_POST["submitted"];
+		$approved = $_POST["approved"];
+		$ma_email = $_POST["ma_email"];
+		$wo_id = $_POST["wo_id"];
    	}
 
 	// Credentials for accessing the database
@@ -36,7 +36,7 @@
 
 	// if WO ID is selected
 	else if ($wo_id != NULL) {
-		$query = "SELECT * FROM wo WHERE order_id = $wo_id";
+		$query = "SELECT * FROM wo WHERE order_id = '$wo_id'";
 		$result = mysql_query($query) or die('Error querying database.');
 	}
 
@@ -45,28 +45,28 @@
 		if ($unassigned == 'True') {
 			$query1 = "SELECT * FROM wo WHERE status = 'unassigned'";
 			if ($ma_email != 	NULL) {
-				$query1 .= " AND assigned_ma = $ma_email"
+				$query1 .= " AND assigned_ma = '$ma_email'"
 			}
 			$result1 = mysql_query($query1) or die('Error querying database.');
 		}
 		if ($assigned == 'True') {
 			$query2 = "SELECT * FROM wo WHERE status = 'assigned'";
 			if ($ma_email != 	NULL) {
-				$query2 .= " AND assigned_ma = $ma_email"
+				$query2 .= " AND assigned_ma = '$ma_email'"
 			}
 			$result2 = mysql_query($query2) or die('Error querying database.');
 		}
 		if ($submitted == 'True') {
 			$query3 = "SELECT * FROM wo WHERE status = 'submitted'";
 			if ($ma_email != 	NULL) {
-				$query3 .= " AND assigned_ma = $ma_email"
+				$query3 .= " AND assigned_ma = '$ma_email'"
 			}
 			$result3 = mysql_query($query3) or die('Error querying database.');
 		}
 		if ($approved == 'True') {
 			$query4 = "SELECT * FROM wo WHERE status = 'approved'";
 			if ($ma_email != 	NULL) {
-				$query4 .= " AND assigned_ma = $ma_email"
+				$query4 .= " AND assigned_ma = '$ma_email'"
 			}
 			$result4 = mysql_query($query4) or die('Error querying database.');
 		}
