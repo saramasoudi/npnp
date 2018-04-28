@@ -108,9 +108,8 @@ function uploadWO() {
 
 function toggle(element) {
 
-	console.log("toggle pdf");
-
 	var id = "options";
+	var className = document.getElementById(element).className;
 
 	// upload button click
 	if (element == "uploadButton" || element == "exitUpload") {
@@ -138,7 +137,7 @@ function toggle(element) {
 		}
 		
 	// pdf preview
-	} else if (element == "pdf" || element == "exitPreview") { 
+	} else if (className == "workOrder" || element == "exitPreview") { 
 		id = "previewForm";	
 
 	// menu icon click
@@ -146,16 +145,35 @@ function toggle(element) {
 		toggleMenu();
 	}
 
+	//console.log("Element: "+element);
+	//console.log("Id: "+id);
+
 	// toggle selected form and overlay 
 	if (id != "options") {		
 		if ( document.getElementById(id).style.display == "block" ) {
 			document.getElementById(id).style.display = "none";
 			document.getElementById("overlay").style.display = "none";			
 		} else {
+
+			/*if (id == "previewForm") {
+				showPreview(element);
+			}*/
+
 			document.getElementById(id).style.display = "block";
 			document.getElementById("overlay").style.display = "block";
 		}
 	}
+}
+
+function showPreview(element) {
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'php/get_pdf.php');
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.onload = function() {
+		var auth = xhr.responseText;
+			console.log(auth);
+		}
+	xhr.send('order_id='+element); 
 }
 
 // menu uses visibility instead of display for style reasons 
