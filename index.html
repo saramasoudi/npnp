@@ -10,11 +10,22 @@
 
 	<script src="js/scripts.js"></script>
 
-	<body style="margin:0;">
-		<div id="mainBody">
+	<body>
 	
-			<!-- navigation menu -->	
+		<div id="loginContainer">
+			<div id="loginBox">
+				<h1>Welcome to the UMBC Facilities MAPS</h1>
+				<p>Please sign in with your myUMBC credentials.</p>
+				<div style="margin:0 0 0 42vw;z-index:2;" id="loginButton">
+					<div class="g-signin2" data-onsuccess="onSignIn"></div>
+				</div>	
+			</div>
 
+		</div>
+
+		<div id="homeContainer">
+
+			<!-- navigation menu -->	
 			<div id="menu">
 				<div id="menuToggleBar">
 					<div id="menuToggle" onclick="toggle(this.id)">
@@ -39,19 +50,40 @@
 			</div>
 
 			<!------------------------------------>
-
-			<iframe src="login.html" id="mainFrame"></iframe>
+			<div id="columnBody">
+				<span class="thinColumn">
+					<h2>Open WOs</h2>
+					<span class="dropField">
+						<!-- <iframe src="php/open_wo.php"></iframe> -->
+					</span>
+				</span>
+				<span class="thinColumn">
+					<h2>Assigned</h2>
+					<span class="dropField">
+						<!--<p>Work orders assigned to me.</p>-->
+						<!--<div class="workOrder"></div>-->
+					</span>
+				</span>
+				<span class="thinColumn">
+					<h2>Submitted</h2>
+					<span class="dropField">
+						<!--<p>Work orders submitted by me.</p>-->
+					</span>
+				</span>
+				<span class="thinColumn">
+					<h2>Approved</h2>
+					<span class="dropField">
+						<!--<p>Work orders submitted by me.</p>-->
+					</span>
+				</span>
+				</div> 
+				<button id="uploadButton" onclick="toggle(this.id)">+</button>
+			</div>
 		
-			<div style="margin:150px 0 0 42vw;z-index:2;" id="loginButton">
-				<div class="g-signin2" data-onsuccess="onSignIn"></div>
-			</div>	
-
-			<button id="uploadButton" onclick="toggle(this.id)">+</button>
-
 			<!-- pop up overlays -->
-
+	
 			<div id="overlay">
-				
+			
 				<!-- upload form -->
 				
 				<div id="uploadForm" class="overlayForm"> 
@@ -59,9 +91,9 @@
 						<b>Upload New WO</b>
 						<button id="exitUpload" class="redirectButton" onclick="toggle(this.id)">X</button>
 					</div>
-
+	
 					<form action="php/upload_wo.php" method="post">
-				
+			
 						<table>
 							<tr>
 								<th><p>Select WO PDF(s) to add to queue:</p></th>
@@ -78,11 +110,9 @@
 						</table>
 					</form>
 				</div>
-
 				<!------------------------------------>
 
 				<!-- search form -->
-
 				<div id="searchForm" class="overlayForm" style="min-height:300px;">
 					<div id="overlayHeader">
 						<b>Search</b>
