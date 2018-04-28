@@ -10,6 +10,7 @@
 	<meta name="google-signin-client_id" content="87351024214-6uo99d69pt45k5vb396ablsqag059g8k.apps.googleusercontent.com">
 
 	<script src="js/scripts.js"></script>
+	<script src="js/requests.js"></script>
 
 	<body>
 	
@@ -54,25 +55,25 @@
 				<span class="column">
 					<h2>Open WOs</h2>
 					<span class="dropField">
-						<iframe src="php/display_unassigned.php"></iframe>
+						<iframe id="openFrame" src="php/display_unassigned.php"></iframe>
 					</span>
 				</span>
 				<span class="column">
 					<h2>Assigned</h2>
 					<span class="dropField">
-						<iframe src="php/display_assigned.php"></iframe>					
+						<iframe id="assignedFrame" src="php/display_assigned.php"></iframe>
 					</span>
 				</span>
 				<span class="column">
 					<h2>Submitted</h2>
 					<span class="dropField">
-						<iframe src="php/display_submitted.php"></iframe>	
+						<iframe id="submittedFrame" src="php/display_submitted.php"></iframe>	
 					</span>
 				</span>
-				<span class="column" id="_column">
+				<span class="column">
 					<h2>Approved</h2>
 					<span class="dropField">
-						<iframe src="php/display_approved.php"></iframe>	
+						<iframe id="approvedFrame" src="php/display_approved.php"></iframe>	
 					</span>
 				</span>
 				</div> 
@@ -90,24 +91,21 @@
 						<b>Upload New WO</b>
 						<button id="exitUpload" class="redirectButton" onclick="toggle(this.id)">X</button>
 					</div>
-	
-					<form action="php/upload_wo.php" method="post">
 			
-						<table>
-							<tr>
-								<th><p>Select WO PDF(s) to add to queue:</p></th>
-								<th><input type="file" name="pdf_wo"></input></th>
-							</tr>
-							<tr>
-								<th><p>Enter unique WO identification number:</p></th>
-								<th><input type="text" name="wo_id"></input></th>
-							</tr>
-							<tr>
-								<th><th>
-								<th><input type="submit" value="Upload" class="redirectButton" id="formButton"></input></th>
-							</tr>
-						</table>
-					</form>
+					<table>
+						<tr>
+							<th><p>Select WO PDF(s) to add to queue:</p></th>
+							<th><input type="file" id="pdf_wo"></input></th>
+						</tr>
+						<tr>
+							<th><p>Enter unique WO identification number:</p></th>
+							<th><input type="text" id="wo_id"></input></th>
+						</tr>
+						<tr>
+							<th><th>
+							<th><button class="redirectButton" id="formButton" onclick="uploadWO()">Upload</button></th>
+						</tr>
+					</table>
 				</div>
 				<!------------------------------------>
 

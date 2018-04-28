@@ -4,8 +4,8 @@
 	// This function will take a new work order and insert it into the database.
 
 	// Code to retrieve variables sent from the html
-	 $pdf_wo = $_POST["pdf_wo"];
- 	 $wo_id = $_POST["wo_id"];	
+	$pdf_wo = $_POST["pdf_wo"];
+ 	$wo_id = $_POST["wo_id"];		
 
 	// Credentials for accessing the database
 	$user = 'snturskey';
@@ -33,7 +33,11 @@
 	$query = "INSERT INTO wo (order_id, wo_pdf) VALUES ('$wo_id', '$pdf_wo')";
 	$result = mysql_query($query) or die('Error querying database.');
 	
-	header("Location:../home.html");
-
+	if (mysql_num_rows($result) == 0) {
+		echo "false";
+	} else {
+		echo "true";
+	}
+	
 ?>
 

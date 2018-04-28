@@ -32,7 +32,7 @@ function onSignIn(googleUser) {
 	
 				document.getElementById("cat_search").style.display = "table-row";		
 				document.getElementById("ma_search").style.display = "table-row";	
-				document.getElementById("_column").style.display = "block";
+				//document.getElementById("_column").style.display = "block";
 
 				if (auth.trim() == 'SA') {
 					document.getElementById("_accounts").style.display = "table-row";
@@ -66,9 +66,34 @@ function signOut() {
 		document.getElementById("_accounts").style.display = "none";
 		document.getElementById("cat_search").style.display = "none";		
 		document.getElementById("ma_search").style.display = "none";		
-		document.getElementById("_column").style.display = "none";
+		//document.getElementById("_column").style.display = "none";
 
 	});
+}
+
+function uploadWO() {
+	
+	var pdf = document.getElementById("pdf_wo").value;
+	var id = document.getElementById("wo_id").value;
+
+	console.log("pdf: "+pdf);
+	console.log("id: "+id);
+
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'php/upload_wo.php');
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr.onload = function() {
+		var auth = xhr.responseText;
+		console.log(auth);
+
+		// reload unassigned iframe
+		document.getElementById("openFrame").contentWindow.location.reload();
+		toggle("uploadButton");
+	}
+	xhr.send('pdf_wo='+pdf+'&wo_id='+id); 
+
+	var pdf = document.getElementById("pdf_wo").value = "";
+	var id = document.getElementById("wo_id").value = "";
 }
 
 function toggle(element) {

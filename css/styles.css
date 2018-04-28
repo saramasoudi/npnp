@@ -72,10 +72,6 @@ body {
 	min-width: 185px;
 }
 
-#_column {
-	display:none;
-}
-
 .dropField {
 	background-color:white;
 	border:2px dotted black;
