@@ -73,11 +73,13 @@ function signOut() {
 
 function uploadWO() {
 	
-	var pdf = document.getElementById("pdf_wo").value;
+	var pdf = document.getElementById("pdf_wo").files;
 	var id = document.getElementById("wo_id").value;
 
+	var pdfPath = document.getElementById("pdf_wo").value;
+
 	// verify pdf selection 
-	var ext = pdf.substring(pdf.lastIndexOf('.')+1);
+	var ext = pdfPath.substring(pdfPath.lastIndexOf('.')+1);
 	if (ext != "pdf") {
 		alert("File type not supported.");
 	} else { 		
@@ -99,12 +101,14 @@ function uploadWO() {
 				//document.getElementById("pdf_wo").value = "";
 				//document.getElementById("wo_id").value = "";
 			}
-			xhr.send('pdf_wo='+pdf+'&wo_id='+id); 
+			xhr.send('pdf_wo='+pdf[0]+'&wo_id='+id); 
 		}
 	}
 }
 
 function toggle(element) {
+
+	console.log("toggle pdf");
 
 	var id = "options";
 
@@ -133,6 +137,10 @@ function toggle(element) {
 			toggleMenu();
 		}
 		
+	// pdf preview
+	} else if (element == "pdf" || element == "exitPreview") { 
+		id = "previewForm";	
+
 	// menu icon click
 	} else if (element == "menuToggle") {
 		toggleMenu();

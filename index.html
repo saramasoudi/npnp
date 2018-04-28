@@ -73,7 +73,11 @@
 				<span class="column">
 					<h2>Approved</h2>
 					<span class="dropField">
-						<iframe id="approvedFrame" src="php/display_approved.php"></iframe>	
+						<div class='workOrder'>
+							<div id="pdf" class='pdfPreview' onlick="toggle(this.id)"></div>
+							<caption id='woID'>".$wo['order_id']."</caption></br>
+						</div>
+						<!-- <iframe id="approvedFrame" src="php/display_approved.php"></iframe> -->	
 					</span>
 				</span>
 				</div> 
@@ -84,6 +88,17 @@
 	
 			<div id="overlay">
 			
+				<div id="pdfPreview" class="overlayForm">
+
+					<div id="overlayHeader">
+						<b>Upload New WO</b>
+						<button id="exitPreview" class="redirectButton" onclick="toggle(this.id)">X</button>
+					</div>
+			
+					<object></object>
+	
+				</div>
+	
 				<!-- upload form -->
 				
 				<div id="uploadForm" class="overlayForm"> 
