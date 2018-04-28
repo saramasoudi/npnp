@@ -1,3 +1,24 @@
+body {
+	//position:fixed;
+	height:100%;
+	width:100%;
+
+	background-color:#cce6ff;
+	font-family:"Arial";
+
+	overflow-x:hidden;
+
+	//left:0;
+	//right:0;
+	//bottom:0;
+	//top:0;
+}
+
+#homeContainer {
+	display:none;
+}
+
+
 #mainBody {
 	margin:0;
 	padding: 0;
@@ -77,15 +98,4 @@ iframe {
 	display:flex;
 	height:100%;
 	border:none;
-}
-
-.workOrder {
-	height:150px;
-	//width:170px;
-	margin: 4% 25% 4% 25%;
-
-	flex:none;
-	//display:flex;	
-
-	border:1px solid red;
 }

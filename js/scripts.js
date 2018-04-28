@@ -17,23 +17,29 @@ function onSignIn(googleUser) {
 	xhr.onload = function() {
 		var auth = xhr.responseText;
 
+		console.log("auth "+auth);
+
 		if (auth.trim() == 'MA') {
 			
+			console.log("into MA");
+
 			// "redirect" to MA_home 
-			document.getElementById("mainFrame").src = "MA_home.html";
+			document.getElementById("loginContainer").style.display = "none";
+			document.getElementById("homeContainer").style.display = "initial";
 			
 			// hide login button and show menu
-			document.getElementById("loginButton").style.display = "none";
-			document.getElementById("menu").style.display = "flex";		
+			//document.getElementById("loginButton").style.display = "none";
+			//document.getElementById("menu").style.display = "flex";		
 
 		} else if (auth.trim() == 'OA' || auth.trim() == 'SA') {
 			
 			// "redirect" to home
-			document.getElementById("mainFrame").src = "home.html";
+			document.getElementById("loginContainer").style.display = "none";
+			document.getElementById("homeContainer").style.display = "initial";
 			
 			// hide login button and show menu and upload buttons
-			document.getElementById("loginButton").style.display = "none";
-			document.getElementById("menu").style.display = "flex";
+			//document.getElementById("loginButton").style.display = "none";
+			//document.getElementById("menu").style.display = "flex";
 			document.getElementById("uploadButton").style.display = "block";		
 
 			document.getElementById("cat_search").style.display = "table-row";		
@@ -60,13 +66,16 @@ function signOut() {
 	auth2.signOut().then(function() {
 		
 		// "redirects" to login page 
-		document.getElementById("mainFrame").src = "index.html";
+		document.getElementById("homeContainer").style.display = "none";
+		document.getElementById("loginContainer").style.display = "initial";
+		
 		
 		// enable the login button 
-		document.getElementById("loginButton").style.display = "block";
+		//document.getElementById("loginButton").style.display = "block";
 		
 		// hide buttons and menus 
-		document.getElementById("menu").style.display = "none";
+		//document.getElementById("menu").style.display = "none";
+
 		document.getElementById("options").style.visibility = "hidden";
 		document.getElementById("uploadButton").style.display = "none";
 		document.getElementById("_accounts").style.display = "none";
