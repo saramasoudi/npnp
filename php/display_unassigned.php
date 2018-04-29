@@ -7,7 +7,9 @@
 	// proper place on the page.
 
 	// Code to retrieve variables sent from the html
-	$email = $_POST["user"];
+	//$email = $_POST["user"];
+
+	$email = "sm14@umbc.edu";
 
 	// Credentials for accessing the database
 	$user = 'snturskey';

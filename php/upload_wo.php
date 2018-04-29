@@ -1,11 +1,17 @@
 <?php
 	
+	ini_set('display_errors',1);
+	error_reporting(E_ALL);
+
+	print_r($GLOBALS);
+
 	// PHP script for the  upload_wo() function
 	// This function will take a new work order and insert it into the database.
 
 	// Code to retrieve variables sent from the html
 	$pdf_wo = $_POST["pdf_wo"];
  	$wo_id = $_POST["wo_id"];		
+	//$wo_id = 9;
 
 echo "<script>console.log('file count=', count($_FILES),'\n');</script>";
 

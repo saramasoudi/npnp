@@ -91,7 +91,7 @@ function uploadWO() {
 		} else {
 		        var data = new FormData();
 			data.append('pdf_wo', pdf);
-			data.append('wo_id', id);
+			//data.append('wo_id', id);
 			console.log(data);
 
 			var xhr = new XMLHttpRequest();
@@ -108,8 +108,8 @@ function uploadWO() {
 				//document.getElementById("wo_id").value = "";
 			}
 			console.log(pdf);
-			//xhr.send('pdf_wo='+data+'&wo_id='+id); 
-			xhr.send(data);
+			xhr.send('pdf_wo='+data+'&wo_id='+id); 
+			//xhr.send(data);
 		}
 	}
 }
