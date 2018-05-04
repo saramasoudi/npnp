@@ -4,10 +4,10 @@
 	// This function will take a new user and insert them into the database.
 
 	// Code to retrieve variables sent from the html
-	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	//if ($_SERVER["REQUEST_METHOD"] == "POST") {
     	   $user_email = $_POST["user_email"];
     	   $acct_type = $_POST["acct_type"];
-  	}
+  	//}
 
 	// Credentials for accessing the database
 	$user = 'snturskey';
