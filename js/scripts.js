@@ -214,6 +214,9 @@ function addUser() {
 	var email = document.getElementById("newUserEmail").value;
 	var accountType = document.getElementById("newUserAccount").value;
 
+	console.log(email);
+	console.log(accountType);
+
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST', 'php/add_user.php');
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -221,7 +224,10 @@ function addUser() {
 		    var auth = xhr.responseText;
 		    console.log(auth);
 		}
-	xhr.send('user_email'+email+'&acct_type'+accountType); 
+	xhr.send('user_email='+email+'&acct_type='+accountType); 
+
+	document.getElementById("newUserEmail").value = "";
+	document.getElementById("newUserAccount").value = "MA";
 }
 
 function showPreview(element) {
