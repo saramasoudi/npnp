@@ -10,6 +10,11 @@
 	width:100%;
 }
 
+#viewUsers {
+	height:100%;
+	width:100%;
+}
+
 .pdfPreview {
 	height:150px;
 	width:135px;

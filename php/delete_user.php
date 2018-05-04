@@ -4,9 +4,9 @@
 	// This function will delete a user from the database.
 
 	// Code to retrieve variables sent from the html
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $ma_email = $_POST["ma_email"];
-  }
+  //if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $user_email = $_POST["user_email"];
+  //}
 
 	// Credentials for accessing the database
 	$user = 'snturskey';
@@ -31,13 +31,13 @@
 	// 	print_r($row['first_name'])
 	//}
 
-  $query = "SELECT * FROM users WHERE email = '$ma_email'"
+  $query = "SELECT * FROM users WHERE email = '$user_email'"
   $result = mysql_query($query) or die('Error querying database.');
   if (mysql_num_rows($result) == 0) {
     echo "<script> console.log('You cannot delete an account that does not exist');</script>";
   }
 
-	$query1 = "DELETE FROM users WHERE email = '$ma_email'";
+	$query1 = "DELETE FROM users WHERE email = '$user_email'";
 	$result1 = mysql_query($query1) or die('Error querying database.');
 
 

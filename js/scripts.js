@@ -230,6 +230,23 @@ function addUser() {
 	document.getElementById("newUserAccount").value = "MA";
 }
 
+function deleteUser() {
+
+	var email = document.getElementById("userEmail").value;
+
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'php/delete_user.php');
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.onload = function() {
+		    var auth = xhr.responseText;
+		    console.log(auth);
+		}
+	xhr.send('user_email='+email); 
+	
+	document.getElementById("viewAccountsFrame").contentWindow.location.reload();
+}
+
+
 function showPreview(element) {
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST', 'php/get_pdf.php');

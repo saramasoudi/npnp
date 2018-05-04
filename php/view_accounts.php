@@ -20,11 +20,11 @@
 	$query = "SELECT email, account_type FROM users";
 	$result = mysql_query($query) or die('Error querying database.');
 
-	Loop over the returned rows and access information by attribute if desired
+	echo "<p>User Email	Account Type</p>";
+	//Loop over the returned rows and access information by attribute if desired
 	while ($row = mysql_fetch_assoc($result)) {
 		echo "<div class='viewUser'>
-                          <p>".$row['email']."</p></br>
-                          <p>".$row['account_type']."</p></br>
+                          <p>".$row['email']."	".$row['account_type']."<button class='redirectButton' onclick='deleteUser()'>Delete?</button></p>
                       </div>";
 		      
 	}
