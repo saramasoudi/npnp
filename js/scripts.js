@@ -230,12 +230,12 @@ function addUser() {
 	document.getElementById("newUserAccount").value = "MA";
 }
 
-function deleteUser() {
+function deleteUser(email) {
 
-	var email = document.getElementById("userEmail").value;
+	//var email = document.getElementById("userEmail").value;
 
 	var xhr = new XMLHttpRequest();
-	xhr.open('POST', 'php/delete_user.php');
+	xhr.open('POST', 'delete_user.php');
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		xhr.onload = function() {
 		    var auth = xhr.responseText;
@@ -243,7 +243,9 @@ function deleteUser() {
 		}
 	xhr.send('user_email='+email); 
 	
-	document.getElementById("viewAccountsFrame").contentWindow.location.reload();
+	//document.getElementById("viewAccountsFrame").contentWindow.location.reload();
+	
+	location.reload();
 }
 
 
