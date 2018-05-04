@@ -209,6 +209,21 @@ function toggle(element) {
 	}
 }
 
+function addUser() {
+
+	var email = document.getElementById("newUserEmail").value;
+	var accountType = document.getElementById("newUserAccount").value;
+
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'php/add_user.php');
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.onload = function() {
+		    var auth = xhr.responseText;
+		    console.log(auth);
+		}
+	xhr.send('user_email'+email+'&acct_type'+accountType); 
+}
+
 function showPreview(element) {
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST', 'php/get_pdf.php');

@@ -73,11 +73,11 @@
 				<span class="column">
 					<h2>Approved</h2>
 					<span class="dropField">
-						<div id="267242" class="workOrder" onclick="toggle(this.id)">
+						<!-- <div id="267242" class="workOrder" onclick="toggle(this.id)">
 							<div id="pdf" class='pdfPreview'></div>
-							<caption id='woID'>267242</caption></br>
-						</div>
-						<!-- <iframe id="approvedFrame" src="php/display_approved.php"></iframe> -->	
+							<caption id='woID'>267242</caption></br> 
+						</div> -->
+						<iframe id="approvedFrame" src="php/display_approved.php"></iframe> 
 					</span>
 				</span>
 				</div> 
@@ -166,13 +166,20 @@
 					<table>
 						<tr>
 							<th><p>Add user to system:</p></th>
-							<th><input type="text"></input></th>
-							<th><input type="submit" value="Add" class="redirectButton"></input></th>
+							<th><input id="newUserEmail" type="text"></input></th>
+							<th>
+								<select id="newUserAccount">
+									<option value="SA">SA</option>
+									<option value="OA">OA</option>
+									<option value="MA">MA</option>
+								</select>
+							</th>
+							<th><input type="submit" value="Add" class="redirectButton" id="addUser" onclick="addUser()"></input></th>
 						</tr>
 						<tr>
 							<th style="vertical-align:top;"><p style="margin-top:0;">Accounts:</p></th>
 							<th>
-								<!-- <iframe src="view_accounts.php"></iframe> -->
+								<iframe src="php/view_accounts.php"></iframe>
 							</th>
 						</tr>
 					</table>
