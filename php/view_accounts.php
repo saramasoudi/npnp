@@ -20,15 +20,21 @@
 	$query = "SELECT email, account_type FROM users";
 	$result = mysql_query($query) or die('Error querying database.');
 
-	echo "<script src='../js/scripts.js'></script>";
+//echo "<script src='../js/scripts.js'></script>";
 
-	echo "<p>User Email	Account Type</p>";
+//	echo "<p>User Email	Account Type</p>";
 	//Loop over the returned rows and access information by attribute if desired
-	while ($row = mysql_fetch_assoc($result)) {
-		echo "<div class='viewUser'>
-                          ".$row['email']."	".$row['account_type']."<button class='redirectButton' onclick='deleteUser(".$row['email'].")'>Delete?</button>
-                      </div>";
+	//while ($row = mysql_fetch_assoc($result)) {
+	//	echo "<div class='viewUser'>
+//                        ".$row['email']."	".$row['account_type']."<button class='redirectButton' onclick='deleteUser(".$row['email'].")'>Delete?</button>
+//                    </div>";
 		      
-	}
+//	}
+
+        $rows = array();
+        while ($row = mysql_fetch_assoc($result)) {
+	    $rows[] = $row;
+        }
+	echo json_encode($rows);
 
 ?>

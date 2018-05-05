@@ -31,3 +31,8 @@
 	background-image: url("wo_preview.png");
 	background-size: auto;
 }
+
+.woID {
+	width:100%;	
+	display:block;
+}
