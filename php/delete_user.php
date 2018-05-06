@@ -4,7 +4,9 @@
 	// PHP script for the delete_user() function
 	// This function will delete a user from the database.
 
-	$ma_email = $_POST["ma_email"];
+	// Code to retrieve variables sent from the html
+
+	$user_email = $_POST["user_email"];
 
 	// Credentials for accessing the database
 	$user = 'snturskey';
@@ -19,15 +21,6 @@
 		die("Connection failed: " . mysqli_connect_error());
 	}
 
-	$query = "SELECT * FROM users WHERE email = '$ma_email'"
-  	$result = mysql_query($query) or die('Error querying database.');
-  	if (mysql_num_rows($result) == 0) {
-    	   echo "<script> console.log('You cannot delete an account that does not exist');</script>";
-  	}
-
-	$query1 = "DELETE FROM users WHERE email = '$ma_email'";
+	$query1 = "DELETE FROM users WHERE email = '$user_email'";
 	$result1 = mysql_query($query1) or die('Error querying database.');
-
-
-
 ?>

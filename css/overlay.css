@@ -57,7 +57,7 @@
 
 #accountsForm.overlayForm {
 	min-height: 310px;
-	min-width: 416px;
+	min-width: 670px;
 }
 
 
@@ -65,4 +65,30 @@
 #cat_search,
 #ma_search {
 	display:none;
+}
+
+#accountsTable {
+	width:670px;
+}
+
+#accountsTable tbody {
+	width:100%;
+}
+
+#viewAccountsFrame {
+	//width:600px;
+	height:100%;
+
+	display:flex;
+	flex-direction:column;
+}
+
+.viewUser {
+	display:flex;
+	flex-direction:row;	
+	justify-content:space-evenly;
+
+	border-bottom:1px solid black;
+	padding-bottom:10px;
+	//padding-top:10px;
 }
