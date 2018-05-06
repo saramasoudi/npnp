@@ -17,16 +17,18 @@ function onSignIn(googleUser) {
 	xhr.onload = function() {
 		var auth = xhr.responseText;
 
-		console.log("auth "+auth);
+		//console.log("auth "+auth);
 
 		if (auth.trim() != "invalid") {
 
 			document.getElementById("loginContainer").style.display = "none";
 			document.getElementById("homeContainer").style.display = "initial";		
 
+			display();
+
 			if (auth.trim() == 'OA' || auth.trim() == 'SA') {
 					
-				console.log("elevated permission");
+				//console.log("elevated permission");
 
 				document.getElementById("uploadButton").style.display = "block";		
 	
@@ -114,40 +116,192 @@ function uploadWO() {
 	}
 }
 
+function showUsers() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    var user = auth2.currentUser.get().email;
+
+    document.getElementById("viewAccountsFrame").innerHTML = "";
+
+    var xhr1 = new XMLHttpRequest();
+    xhr1.open('POST', 'php/view_accounts.php');
+    xhr1.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr1.onload = function() {
+	var auth = JSON.parse(xhr1.responseText);
+	//var auth = xhr1.responseText;
+	//console.log(auth);
+	var container = document.getElementById("viewAccountsFrame");
+	for (var key in auth) {
+
+		//console.log(auth[key]);
+
+		var div = document.createElement("DIV");
+		div.setAttribute("class", "viewUser");
+
+		var p1 = document.createElement("CAPTION");
+		p1.textContent = auth[key]["email"];
+		div.appendChild(p1);
+
+		var p2 = document.createElement("CAPTION");
+		p2.textContent = auth[key]["account_type"];
+		div.appendChild(p2);
+
+		var butt = document.createElement("BUTTON");
+		butt.setAttribute("class", "delete redirectButton");
+		butt.textContent = "Delete?";
+		//butt.onclick = deleteUser(auth[key]["email"]);
+		div.appendChild(butt);		
+
+		container.appendChild(div);
+	}
+
+	var elements = document.getElementsByClassName("delete");
+	console.log(elements);
+
+	for (var i=0, len=elements.length; i < len; i++) {
+		elements[i].onclick = deleteUser();
+	}
+	
+    }
+
+    xhr1.send('user='+user);
+}
+
 function display() {
     var auth2 = gapi.auth2.getAuthInstance();
     var user = auth2.currentUser.get().email;
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'php/display_unassigned.php');
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onload = function() {
-	var auth = xhr.responseText;
+   //console.log("display");
+
+    var xhr1 = new XMLHttpRequest();
+    xhr1.open('POST', 'php/display_unassigned.php');
+    xhr1.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr1.onload = function() {
+	var auth = JSON.parse(xhr1.responseText);
+	//var auth = xhr1.responseText;
+	console.log(auth);
+	var container = document.getElementById("openFrame");
+	for (var key in auth) {
+
+		//console.log(auth[key]);
+
+		var div = document.createElement("DIV");
+		div.setAttribute("class", "workOrder");
+
+		var div2 = document.createElement("DIV");
+		div2.setAttribute("class", "pdfPreview");
+		div.appendChild(div2);
+
+		var cap1 = document.createElement("P");
+		cap1.setAttribute("class", "woID");
+		cap1.textContent = auth[key]["order_id"];
+		div.appendChild(cap1);		
+
+		container.appendChild(div);
+	}
     }
+    xhr1.send('user='+user);
  
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'php/display_assigned.php');
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onload = function() {
-	var auth = xhr.responseText;
-    }
-    xhr.send('user='+user);
+    //console.log("after call?");
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'php/display_submitted.php');
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onload = function() {
-	var auth = xhr.responseText;
-    }
-    xhr.send('user='+user);
+    var xhr2 = new XMLHttpRequest();
+    xhr2.open('POST', 'php/display_assigned.php');
+    xhr2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr2.onload = function() {
+	var auth = JSON.parse(xhr2.responseText);
+	console.log(auth);
+	var container = document.getElementById("assignedFrame");
+	for (var key in auth) {
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'php/display_approved.php');
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onload = function() {
-	var auth = xhr.responseText;
+		//console.log(auth[key]);
+
+		var div = document.createElement("DIV");
+		div.setAttribute("class", "workOrder");
+
+		var div2 = document.createElement("DIV");
+		div2.setAttribute("class", "pdfPreview");
+		div.appendChild(div2);
+
+		var cap1 = document.createElement("P");
+		cap1.setAttribute("class", "woID");
+		cap1.textContent = auth[key]["order_id"];
+		div.appendChild(cap1);		
+
+		var cap2 = document.createElement("P");
+		cap2.setAttribute("class", "email");
+		cap2.textContent = auth[key]["assigned_ma"];
+		console.log(auth[key]["email"]);
+		div.appendChild(cap2);		
+
+		container.appendChild(div);
+	}
     }
-    xhr.send('user='+user);
+    xhr2.send('user='+user);
+
+    var xhr3 = new XMLHttpRequest();
+    xhr3.open('POST', 'php/display_submitted.php');
+    xhr3.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr3.onload = function() {
+	var auth = JSON.parse(xhr3.responseText);
+	console.log(auth);
+	var container = document.getElementById("submittedFrame");
+	for (var key in auth) {
+
+		//console.log(auth[key]);
+
+		var div = document.createElement("DIV");
+		div.setAttribute("class", "workOrder");
+
+		var div2 = document.createElement("DIV");
+		div2.setAttribute("class", "pdfPreview");
+		div.appendChild(div2);
+
+		var cap1 = document.createElement("P");
+		cap1.setAttribute("class", "woID");
+		cap1.textContent = auth[key]["order_id"];
+		div.appendChild(cap1);		
+
+		var cap2 = document.createElement("P");
+		cap2.setAttribute("class", "email");
+		cap2.textContent = auth[key]["assigned_ma"];
+		div.appendChild(cap2);		
+
+		container.appendChild(div);
+	}
+    }
+    xhr3.send('user='+user);
+
+    var xhr4 = new XMLHttpRequest();
+    xhr4.open('POST', 'php/display_approved.php');
+    xhr4.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr4.onload = function() {
+	var auth = JSON.parse(xhr4.responseText);
+	console.log(auth);
+	var container = document.getElementById("approvedFrame");
+	for (var key in auth) {
+
+		//console.log(auth[key]);
+
+		var div = document.createElement("DIV");
+		div.setAttribute("class", "workOrder");
+
+		var div2 = document.createElement("DIV");
+		div2.setAttribute("class", "pdfPreview");
+		div.appendChild(div2);
+
+		var cap1 = document.createElement("P");
+		cap1.setAttribute("class", "woID");
+		cap1.textContent = auth[key]["order_id"];
+		div.appendChild(cap1);		
+
+		var cap2 = document.createElement("P");
+		cap2.setAttribute("class", "email");
+		cap2.textContent = auth[key]["assigned_ma"];
+		div.appendChild(cap2);		
+
+		container.appendChild(div);
+	}
+    }
+    xhr4.send('user='+user);
 }
 
 function toggle(element) {
@@ -178,6 +332,7 @@ function toggle(element) {
 		// close menu when overlay pops up
 		if (element == "accountsButton") {
 			toggleMenu();
+			showUsers();
 		}
 		
 	// pdf preview
@@ -228,6 +383,26 @@ function addUser() {
 
 	document.getElementById("newUserEmail").value = "";
 	document.getElementById("newUserAccount").value = "MA";
+}
+
+function deleteUser() {
+
+	console.log("deleteing...");
+
+	//var email = document.getElementById("userEmail").value;
+
+	/*var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'php/delete_user.php');
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.onload = function() {
+		    var auth = xhr.responseText;
+		    console.log(auth);
+		}
+	xhr.send('user_email='+email); 
+	
+	//document.getElementById("viewAccountsFrame").contentWindow.location.reload();
+	
+	location.reload();*/
 }
 
 function showPreview(element) {

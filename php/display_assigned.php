@@ -1,5 +1,3 @@
-<link rel="stylesheet" type="text/css" href="../css/columns.css">
-
 <?php
 
 	// PHP script for the  display_assigned() function
@@ -39,13 +37,19 @@
 	}
 	$result = mysql_query($query) or die('Error querying database.');
 
-	// Loop over the returned rows and display the wo's
-	while ($wo = mysql_fetch_assoc($result)) {
-		echo "<div class='workOrder'>
-		     	  <div class='pdfPreview'></div>
-		     	  <caption id='woID'>".$wo['order_id']."</caption></br>
-			  <caption id='maID'>".$wo['assigned_ma']."</caption></br>
-		      </div>";
+        $rows = array();
+        while ($wo = mysql_fetch_assoc($result)) {
+	  $rows[] = $wo;
 	}
+        echo json_encode($rows);
+
+	// Loop over the returned rows and display the wo's
+	//while ($wo = mysql_fetch_assoc($result)) {
+	//	echo "<div class='workOrder'>
+	//	     	  <div class='pdfPreview'></div>
+	//	     	  <caption id='woID'>".$wo['order_id']."</caption></br>
+	//		  <caption id='maID'>".$wo['assigned_ma']."</caption></br>
+	//	      </div>";
+	//}
 
 ?>

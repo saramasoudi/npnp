@@ -1,3 +1,4 @@
+"
 <?php
 
 	// PHP script for the delete_user() function

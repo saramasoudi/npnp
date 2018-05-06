@@ -10,7 +10,6 @@
 	<meta name="google-signin-client_id" content="87351024214-6uo99d69pt45k5vb396ablsqag059g8k.apps.googleusercontent.com">
 
 	<script src="js/scripts.js"></script>
-	<script src="js/requests.js"></script>
 
 	<body>
 	
@@ -55,29 +54,25 @@
 				<span class="column">
 					<h2>Open WOs</h2>
 					<span class="dropField">
-						<iframe id="openFrame" src="php/display_unassigned.php"></iframe>
+						<div id="openFrame"></div>
 					</span>
 				</span>
 				<span class="column">
 					<h2>Assigned</h2>
 					<span class="dropField">
-						<iframe id="assignedFrame" src="php/display_assigned.php"></iframe>
+						<div id="assignedFrame"></div>
 					</span>
 				</span>
 				<span class="column">
 					<h2>Submitted</h2>
 					<span class="dropField">
-						<iframe id="submittedFrame" src="php/display_submitted.php"></iframe>	
+						<div id="submittedFrame"></div>	
 					</span>
 				</span>
 				<span class="column">
 					<h2>Approved</h2>
 					<span class="dropField">
-						<!-- <div id="267242" class="workOrder" onclick="toggle(this.id)">
-							<div id="pdf" class='pdfPreview'></div>
-							<caption id='woID'>267242</caption></br> 
-						</div> -->
-						<iframe id="approvedFrame" src="php/display_approved.php"></iframe> 
+						<div id="approvedFrame"></div> 
 					</span>
 				</span>
 				</div> 
@@ -163,26 +158,21 @@
 						<b>System Accounts</b>
 						<button id="exitAccounts" class="redirectButton" onclick="toggle(this.id)">X</button>
 					</div>
-					<table>
-						<tr>
-							<th><p>Add user to system:</p></th>
-							<th><input id="newUserEmail" type="text"></input></th>
-							<th>
-								<select id="newUserAccount">
-									<option value="MA">MA</option>
-									<option value="OA">OA</option>
-									<option value="SA">SA</option>
-								</select>
-							</th>
-							<th><button class="redirectButton" onclick="addUser()">Add</button></th>
-						</tr>
-						<tr>
-							<th style="vertical-align:top;"><p style="margin-top:0;">Accounts:</p></th>
-							<th>
-								<iframe src="php/view_accounts.php"></iframe>
-							</th>
-						</tr>
-					</table>
+					<div id="accountsTable">
+						Add user to system:
+						<input id="newUserEmail" type="text"></input>
+						<select id="newUserAccount">
+							<option value="MA">MA</option>
+							<option value="OA">OA</option>
+							<option value="SA">SA</option>
+						</select>
+						<button class="redirectButton" onclick="addUser()">Add</button>
+				
+		
+						<p style="margin-top:0;">Accounts:</p>
+						<div id="viewAccountsFrame"></div>
+						
+					</div>
 				</div>
 			</div>
 

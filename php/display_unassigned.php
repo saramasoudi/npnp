@@ -1,5 +1,3 @@
-<link rel="stylesheet" type="text/css" href="../css/columns.css">
-
 <?php
 
 	// PHP script for the  display_unassigned() function
@@ -8,6 +6,9 @@
 
 	// Code to retrieve variables sent from the html
 	//$email = $_POST["user"];
+
+	//echo "<script>console.log('here?');</script>;";
+	//echo "what is happening";
 
 	$email = "sm14@umbc.edu";
 
@@ -33,16 +34,22 @@
 	}
 
 	// Query and the results. Rows are stored in the result variable
-	$query = "SELECT * FROM wo WHERE status = 'unassigned'";
+	$query = "SELECT order_id, wo_pdf FROM wo WHERE status = 'unassigned'";
 	$result = mysql_query($query) or die('Error querying database.');
 
-	// Loop over the returned rows and display the wo's
-	while ($wo = mysql_fetch_assoc($result)) {
-		echo "<div class='workOrder'>
-		     	  <div class='pdfPreview' id=".$wo['order_id']."></div>
-		     	  <caption id='woID'>".$wo['order_id']."</caption></br>
-			  <caption id='maID'>".$wo['assigned_ma']."</caption></br>
-		      </div>";
+        $rows = array();
+        while ($wo = mysql_fetch_assoc($result)) {
+	  $rows[] = $wo;
 	}
+        echo json_encode($rows);
 
+	// Loop over the returned rows and display the wo's
+        //while ($wo = mysql_fetch_assoc($result)) {
+	//	echo "<div class='workOrder'>
+	//	     	  <div class='pdfPreview' id=".$wo['order_id']."></div>
+	//	     	  <caption id='woID'>".$wo['order_id']."</caption></br>
+	//		  <caption id='maID'>".$wo['assigned_ma']."</caption></br>
+	//	      </div>";
+	//}
+        
 ?>
