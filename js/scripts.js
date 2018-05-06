@@ -138,7 +138,8 @@ function showUsers() {
 		div.setAttribute("class", "viewUser");
 
 		var p1 = document.createElement("CAPTION");
-		p1.textContent = auth[key]["email"];
+	        p1.textContent = auth[key]["email"];
+	        p1.id = 'p1'
 		div.appendChild(p1);
 
 		var p2 = document.createElement("CAPTION");
@@ -158,6 +159,7 @@ function showUsers() {
 	console.log(elements);
 
 	for (var i=0, len=elements.length; i < len; i++) {
+	        var del_email = elements[i].getElementsByTagName('p1')[0].innerHTML;
 		elements[i].onclick = deleteUser();
 	}
 	
@@ -390,7 +392,7 @@ function deleteUser() {
 	console.log("deleteing...");
 
 	//var email = document.getElementById("userEmail").value;
-
+    
 	/*var xhr = new XMLHttpRequest();
 	xhr.open('POST', 'php/delete_user.php');
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
