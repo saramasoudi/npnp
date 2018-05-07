@@ -5,7 +5,7 @@
 	// proper place on the page.
 
 	// Code to retrieve variables sent from the html
-	$email = $_POST["user"];
+	//$email = $_POST["user"];
 
 	// Credentials for accessing the database
 	$user = 'snturskey';
@@ -25,18 +25,14 @@
 	$query = "SELECT * FROM users WHERE email = '$email'";
 	$result = mysql_query($query) or die('Error querying database.');
 
-	echo "<script>console.log('query done');</script>;";
-
 	while ($usr = mysql_fetch_assoc($result)) {
 	      $acc = $usr['account_type'];
 	}
 
-	echo "<script>console.log('account type gotten');</script>;";
-
 	// Query and the results. Rows are stored in the result variable
 	// If the user is an MA, they can only see their own assigned work orders
 	if ($acc != 'MA') {
-	   $query = "SELECT * FROM wo WHERE status = 'assigned'";
+	  $query = "SELECT * FROM wo WHERE status = 'assigned'";
 	} else {
 	  $query = "SELECT * FROM wo WHERE status = 'assigned' AND assigned_ma ='$user'";
 	}
