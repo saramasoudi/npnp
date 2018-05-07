@@ -13,6 +13,9 @@
  	$wo_id = $_POST["wo_id"];		
 	//$wo_id = 9;
 
+	
+	$pdf_wo = json_encode($pdf_wo);
+	
 	echo "<script>console.log('file count=', count($_FILES),'\n');</script>";
 
 	// Credentials for accessing the database
