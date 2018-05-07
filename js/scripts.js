@@ -172,7 +172,7 @@ function display() {
     var auth2 = gapi.auth2.getAuthInstance();
     var user = auth2.currentUser.get();
     console.log(user);
-    console.log(user.getEmail());
+    console.log(user.getBasicProfile());
     
    //console.log("display");
 
