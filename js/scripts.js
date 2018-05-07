@@ -25,6 +25,7 @@ function onSignIn(googleUser) {
 			document.getElementById("homeContainer").style.display = "initial";		
 
 			display();
+			//window.location.reload();
 
 			// assignDrop eventlistener
 			document.addEventListener("dragstart", function(event) {
@@ -77,6 +78,7 @@ function onAssignDrop(event) {
 	var ma;
 	document.getElementById("maAccounts").onchange = function() {
 		ma = document.getElementById("maAccounts").value;	
+		console.log(ma);
 	};	
 
 	document.getElementById("assignWO").onclick = function() {
@@ -141,6 +143,7 @@ function signOut() {
 		//document.getElementById("_column").style.display = "none";
 
 	});
+	//window.location.reload();
 }
 
 function uploadWO() {
@@ -450,11 +453,16 @@ function getMAs() {
 	//var auth = xhr1.responseText;
 	//console.log(auth);
 	var container = document.getElementById("maAccounts");
+
+	var option = document.createElement("OPTION");
+	option.innerHTML = "";
+	container.appendChild(option);
+
 	for (var key in auth) {
 
 		//console.log(auth[key]);
 
-		var option = document.createElement("OPTION");
+		option = document.createElement("OPTION");
 		option.innerHTML = auth[key]['email'];
 		container.appendChild(option);
 	}
