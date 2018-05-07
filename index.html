@@ -60,19 +60,19 @@
 				<span class="column">
 					<h2>Assigned</h2>
 					<span class="dropField">
-						<div id="assignedFrame" ondrop="assignDrop(event)"></div>
+						<div id="assignedFrame"></div>
 					</span>
 				</span>
 				<span class="column">
 					<h2>Submitted</h2>
 					<span class="dropField">
-						<div id="submittedFrame" ondrop="submitDrop(event)"></div>	
+						<div id="submittedFrame"></div>	
 					</span>
 				</span>
 				<span class="column">
 					<h2>Approved</h2>
 					<span class="dropField">
-						<div id="approvedFrame" ondrop="approveDrop(event)"></div> 
+						<div id="approvedFrame"></div> 
 					</span>
 				</span>
 				</div> 
@@ -182,11 +182,10 @@
 						<b>Assign WO</b>
 						<button id="exitAssign" class="redirectButton" onclick="toggle(this.id)">X</button>
 					</div>
-					<div id="">
+					<div>
 						MAs:
 						<select id="maAccounts"></select>			
-					
-						<button class="redirectButton">Assign</button>
+						<button id="assignWO" class="redirectButton" onclick="toggle(this.id)">Assign</button>
 					</div>
 				</div>
 

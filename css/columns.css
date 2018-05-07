@@ -1,7 +1,7 @@
 .workOrder {
 	bottom:5%;
 	text-align:center;
-	
+
 	width:auto;
 	margin: 10% 1em 0 1em;
 }
@@ -35,4 +35,8 @@
 .woID {
 	width:100%;	
 	display:block;
+}
+
+#assignedFrame {
+	z-index:1;
 }

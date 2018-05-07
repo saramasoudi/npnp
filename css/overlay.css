@@ -60,6 +60,9 @@
 	min-width: 670px;
 }
 
+#assignForm.overlayForm {
+	height: 150px;
+}
 
 #accounts, 
 #cat_search,
@@ -90,5 +93,5 @@
 
 	border-bottom:1px solid black;
 	padding-bottom:10px;
-	//padding-top:10px;
+	f//padding-top:10px;
 }

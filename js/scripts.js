@@ -36,7 +36,8 @@ function onSignIn(googleUser) {
 				event.preventDefault();
 			});
 	
-			document.addEventListener("drop", onDrop);
+			document.getElementById("assignedFrame").addEventListener("drop", onAssignDrop);
+			document.getElementById("submittedFrame").addEventListener("drop", onSubmitDrop);
 
 			console.log(auth.trim());
 			if (auth.trim() == 'OA' || auth.trim() == 'SA') {
@@ -67,23 +68,47 @@ function onSignIn(googleUser) {
 	xhr.send('token='+token+'&email='+email); 
 }
 
-function onDrop(event) {
+function onAssignDrop(event) {
 	event.preventDefault();
-	var data = event.dataTransfer.getData("text/html");
-	console.log("drop");
+	var data = event.dataTransfer.getData("text/html");	
 
-	console.log(data);
-	toggle("assignForm");
+	toggle("assignWO");
 
-	/*var xhr = new XMLHttpRequest();
-	xhr.open('POST', 'php/assign_wo.php');
+	var ma;
+	document.getElementById("maAccounts").onchange = function() {
+		ma = document.getElementById("maAccounts").value;	
+	};	
+
+	document.getElementById("assignWO").onclick = function() {
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST', 'php/assign_wo.php');
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			xhr.onload = function() {
+			    var auth = xhr.responseText;
+			    //console.log(auth);	
+				window.location.reload();	
+
+			}
+		xhr.send('ma_email='+ma+'&wo_id='+data);
+	};
+}
+
+function onSubmitDrop(event) {
+	event.preventDefault();
+	var data = event.dataTransfer.getData("text/html");	
+
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'php/mark_submitted.php');
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		xhr.onload = function() {
-		    var auth = xhr.responseText;
-		    console.log(auth);
+			var auth = xhr.responseText;
+			console.log("AUTH "+auth);
+			//window.location.reload();	
 		}
-	xhr.send('ma_email='+emai+'&wo_id='+woID); */
+	xhr.send('wo_id='+data);
 }
+
+
 
 function signOut() {
 	var auth2 = gapi.auth2.getAuthInstance();
@@ -251,11 +276,10 @@ function display() {
 	var container = document.getElementById("assignedFrame");
 	for (var key in auth) {
 
-		//console.log(auth[key]);
-
 		var div = document.createElement("DIV");
 		div.setAttribute("class", "workOrder");
-
+		div.setAttribute("draggable", "true");
+	
 		var div2 = document.createElement("DIV");
 		div2.setAttribute("class", "pdfPreview");
 		div.appendChild(div2);
@@ -383,7 +407,7 @@ function toggle(element) {
 		toggleMenu();
 
 	// assign wos 
-	} else if (element == "exitAssign" || element == "assignForm" ) {
+	} else if (element == "exitAssign" || element == "assignWO" ) {
 		id = "assignForm";
 		getMAs();
 	}
