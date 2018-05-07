@@ -240,7 +240,7 @@ function display() {
 		container.appendChild(div);
 	}
     }
-    xhr2.send('user='+user);
+    xhr2.send('email='+email);
 
     var xhr3 = new XMLHttpRequest();
     xhr3.open('POST', 'php/display_submitted.php');
