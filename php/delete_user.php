@@ -2,7 +2,7 @@
 <?php
 
 	// PHP script for the delete_user() function
-	// This function will delete a user from the database.
+x	// This function will delete a user from the database.
 
 	// Code to retrieve variables sent from the html
 
