@@ -173,6 +173,8 @@ function display() {
     var user = auth2.currentUser.get();
     console.log(user);
     console.log(user.getBasicProfile());
+    console.log(user.getBasicProfile().getEmail());
+    
     
    //console.log("display");
 
