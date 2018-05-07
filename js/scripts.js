@@ -177,7 +177,7 @@ function uploadWO() {
 				window.location.reload();
 			}
 			console.log(pdf);
-			xhr.send('pdf_wo='+data+'&wo_id='+id); 
+			xhr.send('pdf_wo='+pdf+'&wo_id='+id); 
 		}
 	}
 }
