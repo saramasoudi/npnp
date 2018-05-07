@@ -32,7 +32,7 @@
 	//}
 
 	// Create the query to update the specific Wo to 'complete' status
-	$query = "UPDATE wo SET status = 'Complete' WHERE order_id = $wo_id";
+	$query = "UPDATE wo SET status = 'approved' WHERE order_id = $wo_id";
 	$result = mysql_query($query) or die('Error querying database.');
 
 ?>
