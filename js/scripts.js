@@ -165,6 +165,8 @@ function uploadWO() {
 			//data.append('pdf_wo', pdf);
 			//console.log(data);
 
+			//var data = JSON.stringify(pdf);
+			
 			var xhr = new XMLHttpRequest();
 			xhr.open('POST', 'php/upload_wo.php');
 			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -175,7 +177,7 @@ function uploadWO() {
 				window.location.reload();
 			}
 			console.log(pdf);
-			xhr.send('pdf_wo='+pdf+'&wo_id='+id); 
+			xhr.send('pdf_wo='+data+'&wo_id='+id); 
 		}
 	}
 }
@@ -255,8 +257,7 @@ function display() {
 		div2.setAttribute("class", "pdfPreview");
 		div2.addEventListener("click", function() {
 			toggle("pdfPreview");
-			console.log();
-			//showPreview();
+			showPreview(event.target.parentElement.children[1].innerHTML)
 		});
 		div.appendChild(div2);
 
@@ -427,7 +428,8 @@ function toggle(element) {
 		} else {
 
 			if (id == "previewForm") {
-				showPreview(element);
+				console.log(element);
+				//showPreview(element);
 			}
 
 			document.getElementById(id).style.display = "block";
@@ -503,6 +505,7 @@ function deleteUser() {
 }
 
 function showPreview(element) {
+	console.log(element);
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST', 'php/get_pdf.php');
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

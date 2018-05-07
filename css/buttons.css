@@ -41,7 +41,8 @@
 #exitSearch.redirectButton,
 #exitUpload.redirectButton, 
 #exitAccounts.redirectButton,
-#exitAssign.redirectButton {
+#exitAssign.redirectButton,
+#exitPreview.redirectButton {
 	float:right;
 	width:25px;
 	height:25px;
