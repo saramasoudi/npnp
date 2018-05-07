@@ -26,6 +26,19 @@ function onSignIn(googleUser) {
 
 			display();
 
+			// assignDrop eventlistener
+			document.addEventListener("dragstart", function(event) {
+				event.dataTransfer.setData("text/html", event.target.lastElementChild.innerHTML);
+				console.log("dragstart");			
+			});
+	
+			document.addEventListener("dragover", function(event) {
+				event.preventDefault();
+			});
+	
+			document.addEventListener("drop", onDrop);
+
+			console.log(auth.trim());
 			if (auth.trim() == 'OA' || auth.trim() == 'SA') {
 					
 				//console.log("elevated permission");
@@ -39,7 +52,7 @@ function onSignIn(googleUser) {
 				if (auth.trim() == 'SA') {
 					document.getElementById("_accounts").style.display = "table-row";
 				}
-			}
+			 }
 
 		} else {		
 			
@@ -51,6 +64,24 @@ function onSignIn(googleUser) {
 		}
 	};
 	xhr.send('token='+token+'&email='+email); 
+}
+
+function onDrop(event) {
+	event.preventDefault();
+	var data = event.dataTransfer.getData("text/html");
+	console.log("drop");
+
+	console.log(data);
+	toggle("assignForm");
+
+	/*var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'php/assign_wo.php');
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.onload = function() {
+		    var auth = xhr.responseText;
+		    console.log(auth);
+		}
+	xhr.send('ma_email='+emai+'&wo_id='+woID); */
 }
 
 function signOut() {
@@ -192,7 +223,8 @@ function display() {
 
 		var div = document.createElement("DIV");
 		div.setAttribute("class", "workOrder");
-
+		div.setAttribute("draggable", "true");		
+	
 		var div2 = document.createElement("DIV");
 		div2.setAttribute("class", "pdfPreview");
 		div.appendChild(div2);
@@ -347,6 +379,10 @@ function toggle(element) {
 	// menu icon click
 	} else if (element == "menuToggle") {
 		toggleMenu();
+
+	// assign wos 
+	} else if (element == "exitAssign" || element == "assignForm" ) {
+		id = "assignForm";
 	}
 
 	//console.log("Element: "+element);
