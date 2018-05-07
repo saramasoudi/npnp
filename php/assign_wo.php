@@ -24,7 +24,7 @@
 		die("Connection failed: " . mysqli_connect_error());
 	}
 
-	$query = "SELECT * FROM users WHERE email = '$ma_email'"
+	$query = "SELECT * FROM users WHERE email = '$ma_email'";
 	$result = mysql_query($query) or die('Error querying database.');
 	if (mysql_num_rows($result) == 0) {
 		echo "<script> console.log('This is not a valid MA account');</script>";
