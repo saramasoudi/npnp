@@ -30,7 +30,7 @@
 
 	// Query and the results. Rows are stored in the result variable
 	// If the user is an MA, they can only see their own assigned work orders
-	if ($user != 'MA') {
+	if ($acc != 'MA') {
 	   $query = "SELECT * FROM wo WHERE status = 'submitted'";
 	} else {
 	  $query = "SELECT * FROM wo WHERE status = 'submitted' AND assigned_ma ='$email'";
