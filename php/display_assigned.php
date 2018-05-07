@@ -1,8 +1,5 @@
 <?php
 
-	error_reporting(E_ALL);
-	ini_set('display_errors', 1);
-
 	// PHP script for the  display_assigned() function
 	// This function will grab the assigned work orders and display them in the
 	// proper place on the page.
@@ -37,7 +34,7 @@
 	if ($acc != 'MA') {
 	  $query = "SELECT * FROM wo WHERE status = 'assigned'";
 	} else {
-	  $query = "SELECT * FROM wo WHERE status = 'assigned' AND assigned_ma ='$user'";
+	  $query = "SELECT * FROM wo WHERE status = 'assigned' AND assigned_ma ='$email'";
 	}
 	$result = mysql_query($query) or die('Error querying database.');
 
