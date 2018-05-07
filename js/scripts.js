@@ -163,7 +163,6 @@ function uploadWO() {
 		} else {
 		        var data = new FormData();
 			data.append('pdf_wo', pdf);
-			//data.append('wo_id', id);
 			console.log(data);
 
 			var xhr = new XMLHttpRequest();
@@ -173,15 +172,11 @@ function uploadWO() {
 				var auth = xhr.responseText;
 				console.log(auth);
 
-				// reload unassigned iframe
-				document.getElementById("openFrame").contentWindow.location.reload();
 				toggle("uploadButton");
-				//document.getElementById("pdf_wo").value = "";
-				//document.getElementById("wo_id").value = "";
+				window.location.reload();
 			}
 			console.log(pdf);
 			xhr.send('pdf_wo='+data+'&wo_id='+id); 
-			//xhr.send(data);
 		}
 	}
 }
