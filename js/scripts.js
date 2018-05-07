@@ -209,8 +209,8 @@ function display() {
     xhr2.open('POST', 'php/display_assigned.php');
     xhr2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr2.onload = function() {
-	var auth = JSON.parse(xhr2.responseText);
 	console.log(auth);
+	var auth = JSON.parse(xhr2.responseText);
 	var container = document.getElementById("assignedFrame");
 	for (var key in auth) {
 
