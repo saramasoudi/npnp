@@ -6,6 +6,7 @@
 
 	// Code to retrieve variables sent from the html
 	$email = $_POST["user"];
+	echo $email;
 
 	// Credentials for accessing the database
 	$user = 'snturskey';
