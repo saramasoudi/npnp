@@ -40,7 +40,7 @@
 						<!-- this menu option should only be visible to SA -->
 						<th><button id="accountsButton" class="redirectButton" onclick="toggle(this.id)">Accounts</button></th>
 					</tr>
-					<tr>
+					<tr id="_search">
 						<!-- this menu option should only be visible to OA & SA -->
 						<th><button id="searchButton" class="redirectButton" onclick="toggle(this.id)">Search</button></th>
 					</tr>
@@ -66,13 +66,13 @@
 				<span class="column">
 					<h2>Submitted</h2>
 					<span class="dropField">
-						<div id="submittedFrame"></div>	
+						<div id="submittedFrame" ondrop="submitDrop(event)"></div>	
 					</span>
 				</span>
 				<span class="column">
 					<h2>Approved</h2>
 					<span class="dropField">
-						<div id="approvedFrame"></div> 
+						<div id="approvedFrame" ondrop="approveDrop(event)"></div> 
 					</span>
 				</span>
 				</div> 
@@ -184,11 +184,7 @@
 					</div>
 					<div id="">
 						MAs:
-						<select id="MAAccounts">
-							<option value="MA">MA</option>
-							<option value="OA">OA</option>
-							<option value="SA">SA</option>
-						</select>			
+						<select id="maAccounts"></select>			
 					
 						<button class="redirectButton">Assign</button>
 					</div>

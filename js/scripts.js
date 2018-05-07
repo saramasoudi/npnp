@@ -47,6 +47,7 @@ function onSignIn(googleUser) {
 	
 				document.getElementById("cat_search").style.display = "table-row";		
 				document.getElementById("ma_search").style.display = "table-row";	
+				document.getElementById("_search").style.display = "table-row";
 				//document.getElementById("_column").style.display = "block";
 
 				if (auth.trim() == 'SA') {
@@ -97,6 +98,7 @@ function signOut() {
 		// hide elevated permission 
 		document.getElementById("uploadButton").style.display = "none";
 		document.getElementById("_accounts").style.display = "none";
+		document.getElementById("_search").style.display = "none";
 		document.getElementById("cat_search").style.display = "none";		
 		document.getElementById("ma_search").style.display = "none";		
 		//document.getElementById("_column").style.display = "none";
@@ -383,6 +385,7 @@ function toggle(element) {
 	// assign wos 
 	} else if (element == "exitAssign" || element == "assignForm" ) {
 		id = "assignForm";
+		getMAs();
 	}
 
 	//console.log("Element: "+element);
@@ -403,6 +406,31 @@ function toggle(element) {
 			document.getElementById("overlay").style.display = "block";
 		}
 	}
+}
+
+function getMAs() {
+
+	 document.getElementById("maAccounts").innerHTML = "";
+
+    var xhr1 = new XMLHttpRequest();
+    xhr1.open('POST', 'php/get_ma.php');
+    xhr1.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr1.onload = function() {
+	var auth = JSON.parse(xhr1.responseText);
+	//var auth = xhr1.responseText;
+	//console.log(auth);
+	var container = document.getElementById("maAccounts");
+	for (var key in auth) {
+
+		//console.log(auth[key]);
+
+		var option = document.createElement("OPTION");
+		option.innerHTML = auth[key]['email'];
+		container.appendChild(option);
+	}
+    }
+
+    xhr1.send();
 }
 
 function addUser() {
