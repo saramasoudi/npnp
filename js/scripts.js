@@ -170,8 +170,11 @@ function showUsers() {
 
 function display() {
     var auth2 = gapi.auth2.getAuthInstance();
-    var user = auth2.currentUser.get().getBasicProfile().getEmail();
-    
+    var user = auth2.currentUser.get();
+    var email = user.getBasicProfile().getEmail();
+
+    console.log(user);
+    console.log(email);
     
    //console.log("display");
 
@@ -202,7 +205,7 @@ function display() {
 		container.appendChild(div);
 	}
     }
-    xhr1.send('user='+user);
+    xhr1.send('email='+email);
  
     //console.log("after call?");
 
