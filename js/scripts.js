@@ -103,7 +103,7 @@ function onSubmitDrop(event) {
 		xhr.onload = function() {
 			var auth = xhr.responseText;
 			console.log("AUTH "+auth);
-			//window.location.reload();	
+			window.location.reload();	
 		}
 	xhr.send('wo_id='+data);
 }
