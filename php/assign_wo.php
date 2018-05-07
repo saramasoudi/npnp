@@ -1,4 +1,4 @@
-<?php
+ m<?php
 
 	// PHP script for the  assign_wo() function
      	// This function will take the user id of a maintenance assistant and the work order number.

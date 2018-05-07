@@ -273,7 +273,7 @@ function display() {
 		container.appendChild(div);
 	}
     }
-    xhr3.send('user='+user);
+    xhr3.send('email='+email);
 
     var xhr4 = new XMLHttpRequest();
     xhr4.open('POST', 'php/display_approved.php');
@@ -306,7 +306,7 @@ function display() {
 		container.appendChild(div);
 	}
     }
-    xhr4.send('user='+user);
+    xhr4.send('email='+email);
 }
 
 function toggle(element) {
