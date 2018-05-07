@@ -170,8 +170,8 @@ function showUsers() {
 
 function display() {
     var auth2 = gapi.auth2.getAuthInstance();
-    var user = auth2.currentUser.get().email;
-    console.log(auth2.currentUser.email);
+    var user = auth2.currentUser.get().getBasicProfile().email;
+    console.log(auth2.currentUser.get());
     console.log(user);
     
    //console.log("display");
