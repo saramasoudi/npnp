@@ -201,8 +201,12 @@ function showUsers() {
 
 function display() {
     var auth2 = gapi.auth2.getAuthInstance();
-    var user = auth2.currentUser.get().email;
+    var user = auth2.currentUser.get();
+    var email = user.getBasicProfile().getEmail();
 
+    console.log(user);
+    console.log(email);
+    
    //console.log("display");
 
     var xhr1 = new XMLHttpRequest();
@@ -233,7 +237,7 @@ function display() {
 		container.appendChild(div);
 	}
     }
-    xhr1.send('user='+user);
+    xhr1.send('email='+email);
  
     //console.log("after call?");
 
@@ -242,7 +246,6 @@ function display() {
     xhr2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr2.onload = function() {
 	var auth = JSON.parse(xhr2.responseText);
-	console.log(auth);
 	var container = document.getElementById("assignedFrame");
 	for (var key in auth) {
 
@@ -269,7 +272,7 @@ function display() {
 		container.appendChild(div);
 	}
     }
-    xhr2.send('user='+user);
+    xhr2.send('email='+email);
 
     var xhr3 = new XMLHttpRequest();
     xhr3.open('POST', 'php/display_submitted.php');
@@ -302,7 +305,7 @@ function display() {
 		container.appendChild(div);
 	}
     }
-    xhr3.send('user='+user);
+    xhr3.send('email='+email);
 
     var xhr4 = new XMLHttpRequest();
     xhr4.open('POST', 'php/display_approved.php');
@@ -335,7 +338,7 @@ function display() {
 		container.appendChild(div);
 	}
     }
-    xhr4.send('user='+user);
+    xhr4.send('email='+email);
 }
 
 function toggle(element) {
