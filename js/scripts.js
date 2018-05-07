@@ -28,8 +28,8 @@ function onSignIn(googleUser) {
 
 			// assignDrop eventlistener
 			document.addEventListener("dragstart", function(event) {
-				event.dataTransfer.setData("text/html", event.target.lastElementChild.innerHTML);
-				console.log("dragstart");			
+							
+				event.dataTransfer.setData("text/html", event.target.children[1].innerHTML);			
 			});
 	
 			document.addEventListener("dragover", function(event) {
@@ -38,8 +38,8 @@ function onSignIn(googleUser) {
 	
 			document.getElementById("assignedFrame").addEventListener("drop", onAssignDrop);
 			document.getElementById("submittedFrame").addEventListener("drop", onSubmitDrop);
+			document.getElementById("approvedFrame").addEventListener("drop", onApproveDrop);
 
-			console.log(auth.trim());
 			if (auth.trim() == 'OA' || auth.trim() == 'SA') {
 					
 				//console.log("elevated permission");
@@ -102,12 +102,24 @@ function onSubmitDrop(event) {
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		xhr.onload = function() {
 			var auth = xhr.responseText;
-			console.log("AUTH "+auth);
 			window.location.reload();	
 		}
 	xhr.send('wo_id='+data);
 }
 
+function onApproveDrop(event) {
+	event.preventDefault();
+	var data = event.dataTransfer.getData("text/html");	
+
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'php/mark_completed.php');
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.onload = function() {
+			var auth = xhr.responseText;
+			window.location.reload();	
+		}
+	xhr.send('wo_id='+data);
+}
 
 
 function signOut() {
@@ -231,22 +243,15 @@ function display() {
     var user = auth2.currentUser.get();
     var email = user.getBasicProfile().getEmail();
 
-    console.log(user);
-    console.log(email);
-    
-   //console.log("display");
-
     var xhr1 = new XMLHttpRequest();
     xhr1.open('POST', 'php/display_unassigned.php');
     xhr1.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr1.onload = function() {
 	var auth = JSON.parse(xhr1.responseText);
 	//var auth = xhr1.responseText;
-	console.log(auth);
+
 	var container = document.getElementById("openFrame");
 	for (var key in auth) {
-
-		//console.log(auth[key]);
 
 		var div = document.createElement("DIV");
 		div.setAttribute("class", "workOrder");
@@ -292,7 +297,7 @@ function display() {
 		var cap2 = document.createElement("P");
 		cap2.setAttribute("class", "email");
 		cap2.textContent = auth[key]["assigned_ma"];
-		console.log(auth[key]["email"]);
+		
 		div.appendChild(cap2);		
 
 		container.appendChild(div);
@@ -305,7 +310,6 @@ function display() {
     xhr3.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr3.onload = function() {
 	var auth = JSON.parse(xhr3.responseText);
-	console.log(auth);
 	var container = document.getElementById("submittedFrame");
 	for (var key in auth) {
 
@@ -313,6 +317,7 @@ function display() {
 
 		var div = document.createElement("DIV");
 		div.setAttribute("class", "workOrder");
+		div.setAttribute("draggable", "true");
 
 		var div2 = document.createElement("DIV");
 		div2.setAttribute("class", "pdfPreview");
@@ -338,7 +343,7 @@ function display() {
     xhr4.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr4.onload = function() {
 	var auth = JSON.parse(xhr4.responseText);
-	console.log(auth);
+	
 	var container = document.getElementById("approvedFrame");
 	for (var key in auth) {
 
