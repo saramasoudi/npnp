@@ -35,8 +35,4 @@
 	$query = "UPDATE wo SET status = 'Submitted' WHERE order_id = '$wo_id'";
 	$result = mysql_query($query) or die('Error querying database.');
 
-	header("Refresh:1");
-
-	header("Location:../home.html");
-
 ?>
