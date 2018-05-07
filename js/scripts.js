@@ -161,9 +161,9 @@ function uploadWO() {
 		if (id == 0) {
 			alert("Not a valid WO id number.");
 		} else {
-		        var data = new FormData();
-			data.append('pdf_wo', pdf);
-			console.log(data);
+		        //var data = new FormData();
+			//data.append('pdf_wo', pdf);
+			//console.log(data);
 
 			var xhr = new XMLHttpRequest();
 			xhr.open('POST', 'php/upload_wo.php');
@@ -171,12 +171,11 @@ function uploadWO() {
 			xhr.onload = function() {
 				var auth = xhr.responseText;
 				console.log(auth);
-
 				toggle("uploadButton");
 				window.location.reload();
 			}
 			console.log(pdf);
-			xhr.send('pdf_wo='+data+'&wo_id='+id); 
+			xhr.send('pdf_wo='+pdf+'&wo_id='+id); 
 		}
 	}
 }
@@ -254,6 +253,11 @@ function display() {
 	
 		var div2 = document.createElement("DIV");
 		div2.setAttribute("class", "pdfPreview");
+		div2.addEventListener("click", function() {
+			toggle("pdfPreview");
+			console.log();
+			//showPreview();
+		});
 		div.appendChild(div2);
 
 		var cap1 = document.createElement("P");
@@ -370,7 +374,7 @@ function display() {
 function toggle(element) {
 
 	var id = "options";
-	var className = document.getElementById(element).className;
+	//var className = document.getElementById(element).className;
 
 	// upload button click
 	if (element == "uploadButton" || element == "exitUpload") {
@@ -399,7 +403,7 @@ function toggle(element) {
 		}
 		
 	// pdf preview
-	} else if (className == "workOrder" || element == "exitPreview") { 
+	} else if (element == "pdfPreview" || element == "exitPreview") { 
 		id = "previewForm";	
 
 	// menu icon click
