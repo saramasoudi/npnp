@@ -1,11 +1,14 @@
 <?php
 
+	error_reporting(E_ALL);
+	ini_set('display_errors', 1);
+
 	// PHP script for the  display_assigned() function
 	// This function will grab the assigned work orders and display them in the
 	// proper place on the page.
 
 	// Code to retrieve variables sent from the html
-	//$email = $_POST["user"];
+	$email = $_POST["user"];
 
 	// Credentials for accessing the database
 	$user = 'snturskey';
